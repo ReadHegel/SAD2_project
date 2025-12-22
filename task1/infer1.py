@@ -2,9 +2,17 @@ import subprocess
 import pandas as pd
 import re
 import os
+import argparse
 
 def main():
-    data_unknown_type = pd.read_csv('data/trajectories_synchronous.csv') # todo change to argument
+
+    parser = argparse.ArgumentParser(
+        description="Bayesian network inferrer"
+    )
+    parser.add_argument("--trajectories", type=str, required=True)
+    args = parser.parse_args()
+
+    data_unknown_type = pd.read_csv(args.trajectories)
     assert type(data_unknown_type) is pd.DataFrame, "failed reading csf"
     data_df = data_unknown_type # data_df is pd.DataFrame. python2 does not do typing
     assert data_df is not None
