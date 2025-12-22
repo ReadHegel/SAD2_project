@@ -50,35 +50,11 @@ def write_bnet(path, graph):
 
 
 # -------------------------------------------------
-# Symulacje
-# -------------------------------------------------
-def simulate_sync(primes, init, steps):
-    traj = [init]
-    current = init
-    for _ in range(steps):
-        current = successor_synchronous(primes, current)
-        traj.append(current)
-    return traj
-
-
-def simulate_async(primes, init, steps):
-    traj = [init]
-    current = init
-    for _ in range(steps):
-        current = random_successor_asynchronous(primes, current)
-        traj.append(current)
-    return traj
-
-
-def trajectory_to_df(traj, nodes):
-    return pd.DataFrame([{n: s[n] for n in nodes} for s in traj])
-
-
-# -------------------------------------------------
 # Rysowanie grafu regulacyjnego
 # -------------------------------------------------
 def plot_graph(primes, path):
     pyboolnet.interaction_graphs.create_image(primes, path)
+
 
 # -------------------------------------------------
 # Rysowanie STG state transition graph
@@ -89,14 +65,19 @@ def plot_stg(primes, mode, path):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Boolean network simulation with PyBoolNet"
+        description="Boolean network generation with PyBoolNet"
     )
     parser.add_argument("--nodes", type=int, required=True)
     parser.add_argument("--outdir", type=str, required=True)
-    parser.add_argument("--mode", choices=["synchronous", "asynchronous"], required=True)
+
+    # Used only for stg graph
+    parser.add_argument(
+        "--mode", choices=["synchronous", "asynchronous"], required=True
+    )
     parser.add_argument("--trajectories", type=int, default=10)
     parser.add_argument("--steps", type=int, default=20)
-    parser.add_argument("--stg", action="store_true")
+    parser.add_argument("--stg_graph", action="store_true")
+    parser.add_argument("--reg_graph", action="store_true")
     parser.add_argument("--seed", type=int, default=42)
 
     args = parser.parse_args()
@@ -113,36 +94,18 @@ def main():
 
     primes = bnet2primes(bnet_path)
 
-    # --- trajektorie
-    all_dfs = []
-    for i in range(args.trajectories):
-        init = random_state(primes)
-        if args.mode == "sync":
-            traj = simulate_sync(primes, init, args.steps)
-        else:
-            traj = simulate_async(primes, init, args.steps)
-
-        df = trajectory_to_df(traj, nodes)
-        df["trajectory"] = i
-        df["time"] = range(len(df))
-        all_dfs.append(df)
-
-    data = pd.concat(all_dfs, ignore_index=True)
-    csv_path = os.path.join(args.outdir, f"trajectories_{args.mode}.csv")
-    data.to_csv(csv_path, index=False)
-
-    print(f"[INFO] Saved trajectories to {csv_path}")
-
     # --- STG
-    if args.stg:
+    if args.stg_graph:
         stg_path = os.path.join(args.outdir, f"stg_{args.mode}.png")
         plot_stg(primes, args.mode, stg_path)
         print(f"[INFO] Saved STG to {stg_path}")
 
-        structure_graph_path = os.path.join(args.outdir, f"structure_graph_{args.mode}.png")
+    if args.reg_graph:
+        structure_graph_path = os.path.join(
+            args.outdir, f"structure_graph_{args.mode}.png"
+        )
         plot_graph(primes, structure_graph_path)
-        print(f"[INFO] Saved STG to {structure_graph_path}")
-
+        print(f"[INFO] Saved REG graph to {structure_graph_path}")
 
     print("[DONE]")
 
