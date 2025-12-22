@@ -1,3 +1,8 @@
+#!/bin/bash
+
+source "$(conda info --base)/etc/profile.d/conda.sh"
+conda activate sad_generation
+
 python generate_bn.py --nodes 5 --outdir data --mode synchronous --trajectories 10 --steps 10 --stg
 python generate_bn.py --nodes 7 --outdir data --mode synchronous --trajectories 10 --steps 10 --stg
 python generate_bn.py --nodes 10 --outdir data --mode synchronous --trajectories 10 --steps 10 --stg
