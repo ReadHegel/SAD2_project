@@ -1,6 +1,7 @@
 import re
 import networkx as nx
 import pandas as pd
+import pickle
 
 def main():
     scoring_types = ['MDL', 'BDE']
@@ -10,10 +11,13 @@ def main():
     data_df: pd.DataFrame = data_unknown_type
     var_names = [col_name for col_name in data_df.columns.to_list() if re.match(var_name_pattern, col_name) and type(col_name) is str]
 
+    with open ('data/ground_truth_digraph.pkl', 'rb') as ground_truth_file:
+        ground_truth_digraph: nx.DiGraph = pickle.load(ground_truth_file)
+
     for scoring_type in scoring_types:
         inferred_graph = nx.DiGraph()
         inferred_graph.add_nodes_from(var_names)
-        with open('tmp/bnf_output_' + scoring_type + '.sif', 'r', encoding='utf-8') as bnf_output:
+        with open('tmp/bnf_output_' + scoring_type + '.sif', 'r') as bnf_output:
             bnf_output_str = bnf_output.read()
             for (source, sign, destination) in re.findall('(' + var_name_pattern + r')\s*([+-])\s*(' + var_name_pattern + ')', bnf_output_str):
                 inferred_graph.add_edge(source, destination, weight=1 if sign == '+' else -1)
