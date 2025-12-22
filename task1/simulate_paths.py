@@ -48,9 +48,11 @@ def add_atractor_col(dataset_df, primes, mode):
     stg = pyboolnet.state_transition_graphs.primes2stg(primes, mode)
     attractors = compute_attractors_tarjan(stg)
     set_attractors = set(chain.from_iterable(attractors))
+    node_size = len(primes.keys())
 
     dataset_df["isattractor"] = dataset_df.apply(
-        lambda row: 1 if "".join(row.astype(str)) in set_attractors else 0, axis=1
+        lambda row: 1 if "".join(row[:node_size].astype(str)) in set_attractors else 0,
+        axis=1,
     )
 
     return dataset_df
@@ -68,6 +70,7 @@ def main():
     )
     parser.add_argument("--steps", type=int, default=20)
     parser.add_argument("--freq", type=int, default=1)
+    parser.add_argument("--num_traj", type=int, default=1)
     parser.add_argument("--seed", type=int, default=42)
 
     args = parser.parse_args()
@@ -79,20 +82,28 @@ def main():
     nodes = primes.keys()
 
     # --- generate
-    init = random_state(primes)
-    if args.mode == "synchronous":
-        traj = simulate_sync(primes, init, args.steps * args.freq)
-    else:
-        traj = simulate_async(primes, init, args.steps * args.freq)
+    all_df = []
+    for i in range(args.num_traj):
+        init = random_state(primes)
+        if args.mode == "synchronous":
+            traj = simulate_sync(primes, init, args.steps * args.freq)
+        else:
+            traj = simulate_async(primes, init, args.steps * args.freq)
 
-    dataset = traj[:: args.freq]
-    df = trajectory_to_df(dataset, nodes)
-    df = add_atractor_col(df, primes, args.mode)
+        dataset = traj[:: args.freq]
+        df = trajectory_to_df(dataset, nodes)
+        df["time"] = range(len(df))
+        df["trajectory"] = i
 
-    attractor_percent = df["isattractor"].sum() / df.shape[0]
-    csv_name = f"trajectory_{args.mode}_step{args.steps}_freq{args.freq}_attper{attractor_percent}"
+        all_df.append(df)
+
+    concat_df = pd.concat(all_df, ignore_index=True)
+    concat_df = add_atractor_col(concat_df, primes, args.mode)
+
+    attractor_percent = concat_df["isattractor"].sum() / concat_df.shape[0]
+    csv_name = f"trajectory_{args.mode}_step{args.steps}_numtraj{args.num_traj}_freq{args.freq}_attper{attractor_percent}"
     csv_path = os.path.join(args.outdir, csv_name + ".csv")
-    df.to_csv(csv_path, index=False)
+    concat_df.to_csv(csv_path, index=False)
 
     print(f"[INFO] Saved trajectories to {csv_path}")
 
