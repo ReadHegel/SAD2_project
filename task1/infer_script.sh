@@ -11,13 +11,13 @@ if ! [[ -f $TRAJ_PATH ]]; then
     exit 1
 fi
 
-# source "$(conda info --base)/etc/profile.d/conda.sh"
-# conda activate sad_inference
-source ../venv/bin/activate
+source "$(conda info --base)/etc/profile.d/conda.sh"
+conda activate sad_inference
+# source ../venv/bin/activate
 python infer1.py --trajectories $TRAJ_PATH
 deactivate
 
-source ../venv3/bin/activate
-# conda activate sad_generation
+# source ../venv3/bin/activate
+conda activate sad_generation
 python infer2.py --trajectories $TRAJ_PATH --gt_path data/bn5/ground_truth_digraph.pkl
 deactivate
