@@ -2,25 +2,59 @@ import re
 import networkx as nx
 import pandas as pd
 import pickle
+import argparse
+
+from graph_metrics import GRAPH_METRICS
+
+
+def compute_metrics(gt_graph: nx.DiGraph, inferred_graph: nx.DiGraph, name: str):
+    for metric in GRAPH_METRICS:
+        metric_score = metric(gt_graph, inferred_graph)
+        print(f"{name} ---- {metric.__name__} result: {metric_score}")
+
 
 def main():
-    scoring_types = ['MDL', 'BDE']
-    var_name_pattern = r"x\d*"
-    data_unknown_type = pd.read_csv('data/trajectories_synchronous.csv') # todo change to argument
-    assert type(data_unknown_type) is pd.DataFrame, "failed reading csf"
-    data_df: pd.DataFrame = data_unknown_type
-    var_names = [col_name for col_name in data_df.columns.to_list() if re.match(var_name_pattern, col_name) and type(col_name) is str]
+    parser = argparse.ArgumentParser(description="Bayesian network inferrer")
+    parser.add_argument("--trajectories", type=str, required=True)
+    parser.add_argument("--gt_path", type=str, required=True)
 
-    with open ('data/ground_truth_digraph.pkl', 'rb') as ground_truth_file:
+    args = parser.parse_args()
+
+    scoring_types = ["MDL", "BDE"]
+
+    # -- Optain var_names
+    var_name_pattern = r"x\d*"
+    data_unknown_type = pd.read_csv(args.trajectories)
+
+    assert type(data_unknown_type) is pd.DataFrame, "failed reading csf"
+
+    data_df: pd.DataFrame = data_unknown_type
+    var_names = [
+        col_name
+        for col_name in data_df.columns.to_list()
+        if re.match(var_name_pattern, col_name) and type(col_name) is str
+    ]
+
+    # -- Get groupd_truth
+    with open(args.gt_path, "rb") as ground_truth_file:
         ground_truth_digraph: nx.DiGraph = pickle.load(ground_truth_file)
 
     for scoring_type in scoring_types:
         inferred_graph = nx.DiGraph()
         inferred_graph.add_nodes_from(var_names)
-        with open('tmp/bnf_output_' + scoring_type + '.sif', 'r') as bnf_output:
+        with open("tmp/bnf_output_" + scoring_type + ".sif", "r") as bnf_output:
             bnf_output_str = bnf_output.read()
-            for (source, sign, destination) in re.findall('(' + var_name_pattern + r')\s*([+-])\s*(' + var_name_pattern + ')', bnf_output_str):
-                inferred_graph.add_edge(source, destination, weight=1 if sign == '+' else -1)
+            for source, sign, destination in re.findall(
+                "(" + var_name_pattern + r")\s*([+-])\s*(" + var_name_pattern + ")",
+                bnf_output_str,
+            ):
+                inferred_graph.add_edge(
+                    source, destination, sign={1} if sign == "+" else {-1}
+                )
+
+        name = f"{scoring_type}"  # TODO dodać lepsze nazwy i w ogole lepszy wypisywanie wynikow
+        compute_metrics(ground_truth_digraph, inferred_graph, name)
 
 
-main()
+if __name__ == "__main__":
+    main()
