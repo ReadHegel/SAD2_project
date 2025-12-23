@@ -1,4 +1,6 @@
 set -ex
+source "$(conda info --base)/etc/profile.d/conda.sh"
+conda activate sad_generation
 
 simulate() {
     python simulate_paths.py \
