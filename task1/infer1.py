@@ -4,6 +4,8 @@ import re
 import os
 import argparse
 
+NUM_CPU = 4
+
 def main():
 
     parser = argparse.ArgumentParser(
@@ -32,9 +34,15 @@ def main():
 
     scoring_types = ['MDL', 'BDE']
 
+    # import time
+
+    # t = time.time() 
     for scoring_type in scoring_types:
-        cmd = 'bnf -e tmp/bnf_input.txt -n tmp/bnf_output_' + scoring_type + '.sif -s ' + scoring_type
+        # f string doesnt work in this version of python :(
+        cmd = "bnf -e tmp/bnf_input.txt -g --cpu=" + str(NUM_CPU) + " -n tmp/bnf_output_" + scoring_type + ".sif -s " + scoring_type
         subprocess.check_call(cmd, shell=True)
+
+        # print("Czas {:.6f} s".format(time.time() - t))
 
 
 main()

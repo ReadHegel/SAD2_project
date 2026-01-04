@@ -34,11 +34,16 @@ def jaccard_weighted(G1: nx.DiGraph, G2: nx.DiGraph):
 
     for u, v in edges:
         # Taka heura na ujemne krawędzie ?
-        w1 = sum(G1[u][v].get("sign", {0})) + 1 if G1.has_edge(u, v) else 0
-        w2 = sum(G2[u][v].get("sign", {0})) + 1 if G2.has_edge(u, v) else 0
+        s1: set = G1[u][v].get("sign", {}) if G1.has_edge(u, v) else set()
+        s2: set = G2[u][v].get("sign", {}) if G2.has_edge(u, v) else set()
+        print(f"{s1} dupa {s2}")
 
-        num += min(w1, w2)
-        den += max(w1, w2)
+        # print(G1[u][v].get("sign", {0}) if G1.has_edge(u, v) else "Noedge")
+        # print(G2[u][v].get("sign", {0}) if G2.has_edge(u, v) else "Noedge")
+        # print("__________________")
+
+        num += len(s1 & s2) 
+        den += len(s1 | s2)
 
     return num / den if den > 0 else 1.0
 
