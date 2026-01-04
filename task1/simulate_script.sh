@@ -5,7 +5,7 @@ conda activate sad_generation
 set -ex
 
 simulate() {
-    python simulate_paths.py \
+    time python simulate_paths.py \
         --path "$1" \
         --outdir "$2" \
         --mode "${3:-asynchronous}" \
