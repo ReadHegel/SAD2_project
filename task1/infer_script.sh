@@ -6,6 +6,10 @@ source "$(conda info --base)/etc/profile.d/conda.sh"
 
 HEADER="mode,steps,numtraj,freq,attper,score_type,jaccard_result,jaccard_weighted_result"
 
+HEADER_ALL="var_num,$HEADER"
+TOTAL_CSV="all_data.csv"
+echo "$HEADER_ALL" > "$TOTAL_CSV"
+
 for BN in 5 7 10 13 16; do
     BN_DIR="data/bn${BN}"
 
@@ -54,6 +58,7 @@ for BN in 5 7 10 13 16; do
             J=$(echo "$OUTPUT" | grep "$SCORE ---- jaccard result" | awk '{print $NF}')
 
             echo "$MODE,$STEPS,$NUMTRAJ,$FREQ,$ATTPER,$SCORE,$J,$JW" >> "$OUT_CSV"
+            echo "$BN,$MODE,$STEPS,$NUMTRAJ,$FREQ,$ATTPER,$SCORE,$J,$JW" >> "$TOTAL_CSV"
         done
 
     done
