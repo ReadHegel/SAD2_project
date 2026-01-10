@@ -10,3 +10,5 @@ task1/data/bn13/trajectories
 task1/data/bn16/trajectories/
 task1/data/bn5/trajectories/
 task1/data/bn7/trajectories/
+.RData
+.Rhistory
