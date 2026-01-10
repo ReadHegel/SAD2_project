@@ -19,8 +19,8 @@ def main():
     data_df = data_unknown_type # data_df is pd.DataFrame. python2 does not do typing
     assert data_df is not None
 
-    var_name_pattern = r"^x\d*$"
-    var_names = [col_name for col_name in data_df.columns.to_list() if re.match(var_name_pattern, col_name) and type(col_name) is str]
+    skip_names = ["trajectory", "time", "isattractor"]
+    var_names = [name for name in data_df.columns.to_list() if name not in skip_names]
 
     preambule_string = ' '.join(['EXP{}:{}'.format(traj_num, time) for traj_num, time in zip(data_df['trajectory'], data_df['time'])]) + '\n'
     bnf_data_string = '\n'.join([var_name + ' ' + ' '.join([str(val) for val in data_df[var_name]]) for var_name in var_names]) # type: ignore

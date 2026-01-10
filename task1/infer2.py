@@ -23,17 +23,15 @@ def main():
     scoring_types = ["MDL", "BDE"]
 
     # -- Optain var_names
-    var_name_pattern = r"x\d*"
     data_unknown_type = pd.read_csv(args.trajectories)
 
     assert type(data_unknown_type) is pd.DataFrame, "failed reading csf"
 
     data_df: pd.DataFrame = data_unknown_type
-    var_names = [
-        col_name
-        for col_name in data_df.columns.to_list()
-        if re.match(var_name_pattern, col_name) and type(col_name) is str
-    ]
+
+    skip_names = ["trajectory", "time", "isattractor"]
+    var_names = [name for name in data_df.columns.to_list() if name not in skip_names]
+    var_name_pattern = '|'.join(re.escape(name) for name in var_names)
 
     # -- Get groupd_truth
     with open(args.gt_path, "rb") as ground_truth_file:
