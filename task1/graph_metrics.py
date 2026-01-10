@@ -36,7 +36,6 @@ def jaccard_weighted(G1: nx.DiGraph, G2: nx.DiGraph):
         # Taka heura na ujemne krawędzie ?
         s1: set = G1[u][v].get("sign", {}) if G1.has_edge(u, v) else set()
         s2: set = G2[u][v].get("sign", {}) if G2.has_edge(u, v) else set()
-        print(f"{s1} dupa {s2}")
 
         # print(G1[u][v].get("sign", {0}) if G1.has_edge(u, v) else "Noedge")
         # print(G2[u][v].get("sign", {0}) if G2.has_edge(u, v) else "Noedge")

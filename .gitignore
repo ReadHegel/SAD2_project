@@ -4,3 +4,9 @@ venv/
 venv2/
 venv3/
 tmp/
+
+task1/data/bn10/trajectories
+task1/data/bn13/trajectories
+task1/data/bn16/trajectories/
+task1/data/bn5/trajectories/
+task1/data/bn7/trajectories/
