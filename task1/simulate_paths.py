@@ -1,4 +1,5 @@
 import argparse
+import igraph as ig
 import itertools
 from itertools import chain
 import os
@@ -44,14 +45,66 @@ def trajectory_to_df(traj, nodes):
     return pd.DataFrame([{n: s[n] for n in nodes} for s in traj])
 
 
+def compute_attractors_igraph(stg):
+    """
+    Szybsza wersja compute_attractors_tarjan używająca igraph.
+    Zwraca steady_states i cyclic_attractors.
+    """
+
+    # Lista wszystkich wierzchołków
+    nodes = list(stg.nodes())
+    node_index = {n: i for i, n in enumerate(nodes)}
+    edges = [(node_index[u], node_index[v]) for u, v in stg.edges()]
+
+    # Tworzymy graf igraph
+    g = ig.Graph(directed=True)
+    g.add_vertices(len(nodes))
+    g.add_edges(edges)
+
+    # Use the updated method names to avoid DeprecationWarnings
+    scc_clustering = g.connected_components(mode="strong")
+    sccs = scc_clustering.membership
+
+    membership_to_nodes = {}
+    for idx, m in enumerate(sccs):
+        membership_to_nodes.setdefault(m, []).append(nodes[idx])
+
+    steady_states = []
+    cyclic_attractors = []
+
+    # Use cluster_graph() to create the condensed graph
+    cond_graph = scc_clustering.cluster_graph()
+
+    for cluster_idx, scc_nodes in membership_to_nodes.items():
+        # In the condensed graph, an attractor is a node with out-degree 0
+        if cond_graph.outdegree(cluster_idx) == 0:
+            if len(scc_nodes) == 1:
+                # Check for self-loops: a single node is only a steady state
+                # if it actually transitions to itself.
+                node_idx = scc_clustering[cluster_idx][0]
+                if g.get_eid(node_idx, node_idx, directed=True, error=False) != -1:
+                    steady_states.append(scc_nodes[0])
+            else:
+                cyclic_attractors.append(set(scc_nodes))
+
+    return steady_states, cyclic_attractors
+
+
 def add_atractor_col(dataset_df, primes, mode):
     stg = pyboolnet.state_transition_graphs.primes2stg(primes, mode)
-    attractors = compute_attractors_tarjan(stg)
-    set_attractors = set(chain.from_iterable(attractors))
+
+    print(stg)
+
+    # steady_states, cyclic_attractors = compute_attractors_tarjan(stg)
+    steady_states, cyclic_attractors = compute_attractors_igraph(stg)
+    print(steady_states, cyclic_attractors)
+
+    attractors = set(steady_states) | set(chain.from_iterable(cyclic_attractors))
+
     node_size = len(primes.keys())
 
     dataset_df["isattractor"] = dataset_df.apply(
-        lambda row: 1 if "".join(row[:node_size].astype(str)) in set_attractors else 0,
+        lambda row: 1 if "".join(row[:node_size].astype(str)) in attractors else 0,
         axis=1,
     )
 

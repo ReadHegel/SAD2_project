@@ -1,3 +1,4 @@
+#!/bin/bash
 
 source "$(conda info --base)/etc/profile.d/conda.sh"
 conda activate sad_generation
@@ -18,61 +19,14 @@ simulate_n() {
     simulate "data/bn$1/network.bnet" "data/bn$1/trajectories" "$2" "$3" "$4" "$5"
 }
 
-#
-# Simulate 5
-#
-simulate_n 5 asynchronous 20 1 20
-simulate_n 5 asynchronous 20 3 20
-simulate_n 5 asynchronous 20 5 20
-
-simulate_n 5 synchronous 20 1 20
-simulate_n 5 synchronous 20 3 20
-simulate_n 5 synchronous 20 5 20
-
-#
-# Simulate 7
-#
-
-simulate_n 7 asynchronous 20 1 20
-simulate_n 7 asynchronous 20 3 20
-simulate_n 7 asynchronous 20 5 20
-
-simulate_n 7 synchronous 20 1 20
-simulate_n 7 synchronous 20 3 20
-simulate_n 7 synchronous 20 5 20
-
-#
-# Simulate 10
-#
-
-simulate_n 10 asynchronous 20 1 20
-simulate_n 10 asynchronous 20 3 20
-simulate_n 10 asynchronous 20 5 20
-
-simulate_n 10 synchronous 20 1 20
-simulate_n 10 synchronous 20 3 20
-simulate_n 10 synchronous 20 5 20
-
-#
-# Simulate 13
-#
-
-simulate_n 13 asynchronous 20 1 20
-simulate_n 13 asynchronous 20 3 20
-simulate_n 13 asynchronous 20 5 20
-
-simulate_n 13 synchronous 20 1 20
-simulate_n 13 synchronous 20 3 20
-simulate_n 13 synchronous 20 5 20
-
-#
-# Simulate 16
-#
-
-simulate_n 16 asynchronous 20 1 20
-simulate_n 16 asynchronous 20 3 20
-simulate_n 16 asynchronous 20 5 20
-
-simulate_n 16 synchronous 20 1 20
-simulate_n 16 synchronous 20 3 20
-simulate_n 16 synchronous 20 5 20
+for n in 5 7 10 13 16; do
+    for mode in asynchronous synchronous; do
+        for steps in 5 20; do
+            for freq in 1 3 5; do
+                for num_traj in 20 70; do
+                    simulate_n $n $mode $steps $freq $num_traj
+                done
+            done
+        done
+    done
+done
