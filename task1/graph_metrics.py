@@ -22,7 +22,7 @@ def dump_digraph(G, name: str = ""):
 
 
 def validate(G1: nx.DiGraph, G2: nx.DiGraph):
-    assert list(G1.nodes()) == list(G2.nodes())
+    assert list(G1.nodes()) == list(G2.nodes()), f"Node sets differ: {G1.nodes()} vs {G2.nodes()}"
 
 
 def jaccard_weighted(G1: nx.DiGraph, G2: nx.DiGraph):

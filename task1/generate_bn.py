@@ -72,12 +72,13 @@ def main():
     parser = argparse.ArgumentParser(
         description="Boolean network generation with PyBoolNet"
     )
-    parser.add_argument("--nodes", type=int, required=True)
-    parser.add_argument("--outdir", type=str, required=True)
+    parser.add_argument("--path", type=str, required=False)
+    parser.add_argument("--nodes", type=int, required=False)
+    parser.add_argument("--outdir", type=str, required=False)
 
     # Used only for stg graph
     parser.add_argument(
-        "--mode", choices=["synchronous", "asynchronous"], required=True
+        "--mode", choices=["synchronous", "asynchronous"], required=False
     )
     parser.add_argument("--trajectories", type=int, default=10)
     parser.add_argument("--steps", type=int, default=20)
@@ -90,16 +91,22 @@ def main():
 
     os.makedirs(args.outdir, exist_ok=True)
 
-    nodes = [f"x{i}" for i in range(1, args.nodes + 1)]
+    if not args.path:
+        assert args.nodes is not None, "Either --path or --nodes must be provided"
+        nodes = [f"x{i}" for i in range(1, args.nodes + 1)]
 
-    # --- sieć boolowska
-    graph = random_regulatory_graph(nodes)
-    bnet_path = os.path.join(args.outdir, "network.bnet")
-    write_bnet(bnet_path, graph)
+        # --- sieć boolowska
+        graph = random_regulatory_graph(nodes)
+        bnet_path = os.path.join(args.outdir, "network.bnet")
+        write_bnet(bnet_path, graph)
 
-    primes = bnet2primes(bnet_path)
+        primes = bnet2primes(bnet_path)
+
+    else:
+        primes = bnet2primes(args.path)
 
     ground_truth_digraph = primes2igraph(primes)
+    
     with open(
         os.path.join(args.outdir, "ground_truth_digraph.pkl"), "wb"
     ) as ground_truth_file:
