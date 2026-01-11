@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+# set -ex
 
 source "$(conda info --base)/etc/profile.d/conda.sh"
 
@@ -10,7 +10,10 @@ HEADER_ALL="var_num,$HEADER"
 TOTAL_CSV="all_data.csv"
 echo "$HEADER_ALL" > "$TOTAL_CSV"
 
+rm tmp/*
+
 for BN in 5 7 10 13 16; do
+# for BN in 5; do
     BN_DIR="data/bn${BN}"
 
     echo "Processing $BN_DIR"
@@ -29,7 +32,11 @@ for BN in 5 7 10 13 16; do
         echo "$HEADER" > "$OUT_CSV"
     fi
 
-    for TRAJ in "$TRAJ_DIR"/*.csv; do
+    TRAJECTORIES=("$TRAJ_DIR"/*.csv)
+    IDs=()
+
+    conda activate sad_inference
+    for TRAJ in "${TRAJECTORIES[@]}"; do
         echo "  Trajectory: $(basename "$TRAJ")"
 
         FILENAME=$(basename "$TRAJ")
@@ -45,12 +52,30 @@ for BN in 5 7 10 13 16; do
         ATTPER=$(echo "$FILENAME" | grep -oE 'attper[0-9]+\.?[0-9]*' | sed 's/attper//')
 
         # -------- RUN INFERENCE 1 --------
-        conda activate sad_inference
-        python infer1.py --trajectories "$TRAJ" > /dev/null
+        ID=$(python infer1.py --trajectories "$TRAJ")
+        IDs+=("$ID")
+
+    done
+    
+    echo "  Completed inference 1 for all trajectories. Starting inference 2 and evaluation."
+    
+    conda activate sad_generation
+    for ((i=0; i<${#TRAJECTORIES[@]}; i++)); do
+        echo "  Evaluating Trajectory: $(basename "${TRAJECTORIES[i]}")"
+
+        TRAJ="${TRAJECTORIES[i]}"
+        ID="${IDs[i]}"
+
+        FILENAME=$(basename "$TRAJ")
+
+        MODE=$(echo "$FILENAME" | grep -oE 'synchronous|asynchronous')
+        STEPS=$(echo "$FILENAME" | grep -oE 'step[0-9]+' | sed 's/step//')
+        NUMTRAJ=$(echo "$FILENAME" | grep -oE 'numtraj[0-9]+' | sed 's/numtraj//')
+        FREQ=$(echo "$FILENAME" | grep -oE 'freq[0-9]+' | sed 's/freq//')
+        ATTPER=$(echo "$FILENAME" | grep -oE 'attper[0-9]+\.?[0-9]*' | sed 's/attper//')
 
         # -------- RUN INFERENCE 2 & CAPTURE OUTPUT --------
-        conda activate sad_generation
-        OUTPUT=$(python infer2.py --trajectories "$TRAJ" --gt_path "$GT_PATH")
+        OUTPUT=$(python infer2.py --trajectories "$TRAJ" --gt_path "$GT_PATH" --id "$ID")
 
         # -------- PARSE RESULTS --------
         for SCORE in MDL BDE; do
@@ -60,8 +85,10 @@ for BN in 5 7 10 13 16; do
             echo "$MODE,$STEPS,$NUMTRAJ,$FREQ,$ATTPER,$SCORE,$J,$JW" >> "$OUT_CSV"
             echo "$BN,$MODE,$STEPS,$NUMTRAJ,$FREQ,$ATTPER,$SCORE,$J,$JW" >> "$TOTAL_CSV"
         done
-
     done
+
+    # rm tmp/*
+    echo "Completed processing for $BN_DIR"
 
 done
 

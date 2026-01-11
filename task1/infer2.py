@@ -17,6 +17,7 @@ def main():
     parser = argparse.ArgumentParser(description="Bayesian network inferrer")
     parser.add_argument("--trajectories", type=str, required=True)
     parser.add_argument("--gt_path", type=str, required=True)
+    parser.add_argument("--id", type=str, required=True)
 
     args = parser.parse_args()
 
@@ -40,7 +41,7 @@ def main():
     for scoring_type in scoring_types:
         inferred_graph = nx.DiGraph()
         inferred_graph.add_nodes_from(var_names)
-        with open("tmp/bnf_output_" + scoring_type + ".sif", "r") as bnf_output:
+        with open("tmp/bnf_output_" + args.id + "_" + scoring_type + ".sif", "r") as bnf_output:
             bnf_output_str = bnf_output.read()
             for source, sign, destination in re.findall(
                 "(" + var_name_pattern + r")\s*([+-])\s*(" + var_name_pattern + ")",

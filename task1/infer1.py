@@ -6,6 +6,8 @@ import argparse
 
 NUM_CPU = 4
 
+DIR = 'tmp/'
+
 def main():
 
     parser = argparse.ArgumentParser(
@@ -29,7 +31,11 @@ def main():
     if not os.path.exists('tmp'):
         os.makedirs('tmp')
 
-    with open('tmp/bnf_input.txt', 'w') as bnf_input:
+    random_run_id = os.urandom(8).encode('hex')
+    input_filename = "bnf_input_" + random_run_id + ".txt"
+    input_path = DIR + input_filename
+
+    with open(input_path, 'w') as bnf_input:
         bnf_input.write (bnf_file_str)
 
     scoring_types = ['MDL', 'BDE']
@@ -39,10 +45,16 @@ def main():
     # t = time.time() 
     for scoring_type in scoring_types:
         # f string doesnt work in this version of python :(
-        cmd = "bnf -e tmp/bnf_input.txt -g --cpu=" + str(NUM_CPU) + " -n tmp/bnf_output_" + scoring_type + ".sif -s " + scoring_type
+        output_file_filename = "bnf_output_" + random_run_id + "_" + scoring_type + ".sif"
+        output_file_path = DIR + output_file_filename
+
+
+        cmd = "bnf -e " + input_path + " -g --cpu=" + str(NUM_CPU) + " -n " + str(output_file_path) + " -s " + scoring_type
         subprocess.check_call(cmd, shell=True)
 
+
         # print("Czas {:.6f} s".format(time.time() - t))
+    print(random_run_id)
 
 
 main()
