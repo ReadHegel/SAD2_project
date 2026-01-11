@@ -4,6 +4,7 @@ import itertools
 from itertools import chain
 import os
 import random
+from tqdm import tqdm
 
 import matplotlib.pyplot as plt
 import networkx as nx
@@ -89,17 +90,18 @@ def compute_attractors_igraph(stg):
 
     return steady_states, cyclic_attractors
 
-
-def add_atractor_col(dataset_df, primes, mode):
+def compute_attractors(primes, mode):
     stg = pyboolnet.state_transition_graphs.primes2stg(primes, mode)
 
-    print(stg)
+    #print(stg)
 
     # steady_states, cyclic_attractors = compute_attractors_tarjan(stg)
     steady_states, cyclic_attractors = compute_attractors_igraph(stg)
-    print(steady_states, cyclic_attractors)
+    #print(steady_states, cyclic_attractors)
 
-    attractors = set(steady_states) | set(chain.from_iterable(cyclic_attractors))
+    return set(steady_states) | set(chain.from_iterable(cyclic_attractors))
+
+def add_atractor_col(dataset_df, primes, attractors):
 
     node_size = len(primes.keys())
 
@@ -110,12 +112,11 @@ def add_atractor_col(dataset_df, primes, mode):
 
     return dataset_df
 
-def run(path: str, outdir: str, mode: str, steps: int, freq: int, num_traj: int, seed: int = 42):
+def run(primes, attractors, outdir: str, mode: str, steps: int, freq: int, num_traj: int, seed: int = 42):
     random.seed(seed)
 
     os.makedirs(outdir, exist_ok=True)
 
-    primes = bnet2primes(path)
     nodes = primes.keys()
 
     # --- generate
@@ -135,25 +136,36 @@ def run(path: str, outdir: str, mode: str, steps: int, freq: int, num_traj: int,
         all_df.append(df)
 
     concat_df = pd.concat(all_df, ignore_index=True)
-    concat_df = add_atractor_col(concat_df, primes, mode)
+    concat_df = add_atractor_col(concat_df, primes, attractors)
 
     attractor_percent = concat_df["isattractor"].sum() / concat_df.shape[0]
     csv_name = f"trajectory_{mode}_step{steps}_numtraj{num_traj}_freq{freq}_attper{attractor_percent}"
     csv_path = os.path.join(outdir, csv_name + ".csv")
     concat_df.to_csv(csv_path, index=False)
 
-    print(f"[INFO] Saved trajectories to {csv_path}")
+    #print(f"[INFO] Saved trajectories to {csv_path}")
 
-    print("[DONE]")
+    #print("[DONE]")
 
 def main():
-    for n in [5, 7, 10, 13, 16]:
-        for mode in ['asynchronous', 'synchronous']:
-            for steps in [5, 20, 50, 80]:
-                for freq in [1, 3, 5]:
-                    for num_traj in [20, 50, 100]:
-                        print ('running')
-                        run(f"data/bn{n}/network.bnet", f"data/bn{n}/trajectories", mode, steps, freq, num_traj)
+    node_nums = [5, 7, 10, 13, 16]
+    possible_modes = ['asynchronous', 'synchronous']
+    steps_list = [5, 20, 50, 80]
+    freq_list = [1, 3, 5]
+    num_traj_list = [20, 50, 100]
+
+    total_runs = len(node_nums) * len(possible_modes) * len(steps_list) * len(freq_list) * len(num_traj_list)
+
+    with tqdm(total=total_runs, desc="Total progress") as pbar:
+        for n in node_nums:
+            primes = bnet2primes(f"data/bn{n}/network.bnet")
+            for mode in possible_modes:
+                attractors = compute_attractors(primes, mode)
+                for steps in steps_list:
+                    for freq in freq_list:
+                        for num_traj in num_traj_list:
+                            run(primes, attractors, f"data/bn{n}/trajectories", mode, steps, freq, num_traj)
+                            pbar.update(1)
 
 
 if __name__ == "__main__":
