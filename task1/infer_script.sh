@@ -42,7 +42,7 @@ for BN in 5 7 10 13 16; do
         STEPS=$(echo "$FILENAME" | grep -oE 'step[0-9]+' | sed 's/step//')
         NUMTRAJ=$(echo "$FILENAME" | grep -oE 'numtraj[0-9]+' | sed 's/numtraj//')
         FREQ=$(echo "$FILENAME" | grep -oE 'freq[0-9]+' | sed 's/freq//')
-        ATTPER=$(echo "$FILENAME" | grep -oE 'attper[0-9.]+' | sed 's/attper//')
+        ATTPER=$(echo "$FILENAME" | grep -oE 'attper[0-9]+\.?[0-9]*' | sed 's/attper//')
 
         # -------- RUN INFERENCE 1 --------
         conda activate sad_inference

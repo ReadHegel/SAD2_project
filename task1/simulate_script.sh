@@ -21,9 +21,9 @@ simulate_n() {
 
 for n in 5 7 10 13 16; do
     for mode in asynchronous synchronous; do
-        for steps in 5 20; do
+        for steps in 5 20 50 80; do
             for freq in 1 3 5; do
-                for num_traj in 20 70; do
+                for num_traj in 20 50 100; do
                     simulate_n $n $mode $steps $freq $num_traj
                 done
             done
