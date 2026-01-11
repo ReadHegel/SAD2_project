@@ -11,8 +11,9 @@ knitr::opts_chunk$set(echo = TRUE)
 #install.packages("here")
 #install.packages("ggplot2")
 #install.packages("dplyr")
+#install.packages("GGally")
 #install.packages("fastDummies")
-
+#install.packages("broom")
 
 library(here)
 library(ggplot2)
@@ -20,6 +21,7 @@ library(dplyr)
 library(GGally)
 library(fastDummies)
 library(knitr)
+library(broom)
 
 data <- read.csv(here("task1", "all_data.csv"))
 
@@ -55,7 +57,7 @@ mean(data$jaccard_result == data$jaccard_weighted_result)
 
 The achieved results aren't very good, the median is low.
 ```{r}
-summary(data$jaccard_result)
+kable(data.frame(rbind(summary(data$jaccard_result))))
 ```
 We can see that a lot of that is due to the frequency.
 ```{r}
@@ -108,5 +110,9 @@ data_with_dummies <- dummy_cols(data) %>% filter(freq==1)
 linear_model <- lm(jaccard_result ~
                       var_num + steps + numtraj + attper + mode_asynchronous + score_type_BDE,
                       data_with_dummies)
-summary(linear_model)
+
+kable(tidy(linear_model))
+```
+```{r}
+summary(linear_model)$adj.r.squared
 ```
