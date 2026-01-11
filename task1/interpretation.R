@@ -62,13 +62,24 @@ ggplot(data, aes(x=attper, y=jaccard_result)) + geom_point()
 
 
 
-
-# linear model doesn't actually do anything
-data_with_dummies <- dummy_cols(data) %>% filter(var_num == 16)
+# linear model gives good results *if* we use only data from freq == 1
+data_with_dummies <- dummy_cols(data) %>% filter(freq==1)
 linear_model <- lm(jaccard_result ~
-                     steps + numtraj + freq + attper + mode_asynchronous + score_type_BDE, data_with_dummies)
+                     var_num + steps + numtraj + attper + mode_asynchronous + score_type_BDE, data_with_dummies)
 summary(linear_model)
 
 # but not given everything else the correlation actually has a very high p value
 cor.test(data$attper, data$jaccard_result, method = "spearman")
 
+
+colnames(data)
+
+
+# we see that if we filter by only freq 1 we have much more consistent results and its always better to use synchronous with more steps
+ggplot(data %>% filter(freq==1), aes(x=mode,y=steps,fill=jaccard_result)) + geom_tile() + facet_wrap(~var_num)
+
+# the synchronous data is less resistant to less frequent probes
+ggplot(data, aes(x=mode,y=steps,fill=jaccard_result)) + geom_tile() + facet_wrap(~freq)
+
+
+data %>% group_by(freq) %>% summarise(med=median(jaccard_result))

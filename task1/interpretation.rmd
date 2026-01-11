@@ -19,10 +19,26 @@ library(ggplot2)
 library(dplyr)
 library(GGally)
 library(fastDummies)
+library(knitr)
 
 data <- read.csv(here("task1", "all_data.csv"))
 
 ```
+
+# Effect of sampling frequency
+
+We can see on the plots that if time between sampling increases, the results get worse.
+```{r}
+ggplot(data, aes(x=factor(freq), y=jaccard_result)) +
+  geom_violin()
+```
+
+We can test if the correlation is negative and we get
+```{r}
+tst <- cor.test(data$freq, data$jaccard_result, method = "spearman")
+tst
+```
+with low p-value of `r tst$p.value``.
 
 # Graph Metrics
 
@@ -41,31 +57,21 @@ The achieved results aren't very good, the median is low.
 ```{r}
 summary(data$jaccard_result)
 ```
+We can see that a lot of that is due to the frequency.
 ```{r}
-ggplot(data, aes(x="", y=jaccard_result)) + 
+kable(data %>% group_by(freq) %>% summarise(med=median(jaccard_result)))
+```
+```{r}
+ggplot(data, aes(x="", y=jaccard_result)) +
   geom_violin()
 ```
 
-# Effect of sampling frequency
-
-We can see on the plots that if time between sampling increases, the results get worse.
-```{r}
-ggplot(data, aes(x=factor(freq), y=jaccard_result)) + 
-  geom_violin()
-```
-
-We can test if the correlation is negative and we get
-```{r}
-tst <- cor.test(data$freq, data$jaccard_result, method = "spearman")
-tst
-```
-with low p-value of `r tst$p.value``
 
 # Effect of number of variables
 
 For some reason the results are best when using 7 variables.
 ```{r}
-ggplot(data, aes(x=factor(var_num), y=jaccard_result)) + 
+ggplot(data, aes(x=factor(var_num), y=jaccard_result)) +
   geom_violin()
 ```
 
@@ -76,19 +82,31 @@ cor.test(data$var_num, data$jaccard_result, method = "spearman")
 
 # Effect of mode
 
-Intuitively the asynchronous should give better results because it can give more data and synchronous can get stuck in a loop. But the plot shows that the opposite is true and synchronous has better scores.
+First we can see that the synchronous data is much less resistant to infrequent probes.
 ```{r}
-ggplot(data, aes(x=mode, y=jaccard_result)) + 
+ggplot(data, aes(x=mode,y=steps,fill=jaccard_result)) + geom_tile() + facet_wrap(~freq)
+```
+The asynchronous can deal with it, but synchronous works very bad whenever sampling frequency is not 1.
+
+We can see on the following plot that if the frequency is 1, then synchronous data gives generally better results with the given amount of data. It can be because with the same number of transitions more variables get changed.
+```{r}
+ggplot(data %>% filter(freq==1), aes(x=mode, y=jaccard_result)) +
   geom_violin()
 ```
 
-We can see also that lots of scores are zeros. We can test if the mode is independent of the score being zero
+If we divide the data by number of variables we can see that with frequency 1, every time the synchronous option is better and the more steps we have, the better.
 ```{r}
-data_with_zero_jaccard <- data %>% mutate(jaccard_zero = (jaccard_result==0))
-contingency_table <- table(data_with_zero_jaccard$mode, data_with_zero_jaccard$jaccard_zero)
-chisq.test(contingency_table)
+ggplot(data %>% filter(freq==1), aes(x=mode,y=steps,fill=jaccard_result)) + geom_tile() +
+    facet_wrap(~var_num)
 ```
+
+# Linear regression
+
+If we fun linear regression with all the data, the results aren't very good. On the other hand, if we filter only by those results that have frequency 1, we get a high R squared.
 ```{r}
-contingency_table
+data_with_dummies <- dummy_cols(data) %>% filter(freq==1)
+linear_model <- lm(jaccard_result ~
+                      var_num + steps + numtraj + attper + mode_asynchronous + score_type_BDE,
+                      data_with_dummies)
+summary(linear_model)
 ```
-But we can actually see that synchronous gathering actually increases the risk of having zero score.
