@@ -110,40 +110,24 @@ def add_atractor_col(dataset_df, primes, mode):
 
     return dataset_df
 
+def run(path: str, outdir: str, mode: str, steps: int, freq: int, num_traj: int, seed: int = 42):
+    random.seed(seed)
 
-def main():
-    parser = argparse.ArgumentParser(
-        description="Boolean network simulation with PyBoolNet"
-    )
-    parser.add_argument("--path", type=str, required=True)
-    parser.add_argument("--outdir", type=str, required=True)
+    os.makedirs(outdir, exist_ok=True)
 
-    parser.add_argument(
-        "--mode", choices=["synchronous", "asynchronous"], required=True
-    )
-    parser.add_argument("--steps", type=int, default=20)
-    parser.add_argument("--freq", type=int, default=1)
-    parser.add_argument("--num_traj", type=int, default=1)
-    parser.add_argument("--seed", type=int, default=42)
-
-    args = parser.parse_args()
-    random.seed(args.seed)
-
-    os.makedirs(args.outdir, exist_ok=True)
-
-    primes = bnet2primes(args.path)
+    primes = bnet2primes(path)
     nodes = primes.keys()
 
     # --- generate
     all_df = []
-    for i in range(args.num_traj):
+    for i in range(num_traj):
         init = random_state(primes)
-        if args.mode == "synchronous":
-            traj = simulate_sync(primes, init, args.steps * args.freq)
+        if mode == "synchronous":
+            traj = simulate_sync(primes, init, steps * freq)
         else:
-            traj = simulate_async(primes, init, args.steps * args.freq)
+            traj = simulate_async(primes, init, steps * freq)
 
-        dataset = traj[:: args.freq]
+        dataset = traj[:: freq]
         df = trajectory_to_df(dataset, nodes)
         df["time"] = range(len(df))
         df["trajectory"] = i
@@ -151,16 +135,25 @@ def main():
         all_df.append(df)
 
     concat_df = pd.concat(all_df, ignore_index=True)
-    concat_df = add_atractor_col(concat_df, primes, args.mode)
+    concat_df = add_atractor_col(concat_df, primes, mode)
 
     attractor_percent = concat_df["isattractor"].sum() / concat_df.shape[0]
-    csv_name = f"trajectory_{args.mode}_step{args.steps}_numtraj{args.num_traj}_freq{args.freq}_attper{attractor_percent}"
-    csv_path = os.path.join(args.outdir, csv_name + ".csv")
+    csv_name = f"trajectory_{mode}_step{steps}_numtraj{num_traj}_freq{freq}_attper{attractor_percent}"
+    csv_path = os.path.join(outdir, csv_name + ".csv")
     concat_df.to_csv(csv_path, index=False)
 
     print(f"[INFO] Saved trajectories to {csv_path}")
 
     print("[DONE]")
+
+def main():
+    for n in [5, 7, 10, 13, 16]:
+        for mode in ['asynchronous', 'synchronous']:
+            for steps in [5, 20, 50, 80]:
+                for freq in [1, 3, 5]:
+                    for num_traj in [20, 50, 100]:
+                        print ('running')
+                        run(f"data/bn{n}/network.bnet", f"data/bn{n}/trajectories", mode, steps, freq, num_traj)
 
 
 if __name__ == "__main__":
