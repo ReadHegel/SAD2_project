@@ -3,7 +3,7 @@
 set +ex
 
 # rm -r data  
-# ./generate_script.sh
+./generate_script.sh
 
 rm -r data/*/trajectories/
 ./simulate_script.sh
