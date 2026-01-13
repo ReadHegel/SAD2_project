@@ -1,0 +1,768 @@
+time: cannot run ./task1/all_script.sh: No such file or directory
+Command exited with non-zero status 127
+0.00user 0.00system 0:00.00elapsed 63%CPU (0avgtext+0avgdata 1060maxresident)k
+0inputs+8outputs (0major+29minor)pagefaults 0swaps
+INFO created data/bn5/stg_synchronous.png
+[INFO] Saved STG to data/bn5/stg_synchronous.png
+INFO created data/bn5/structure_graph_synchronous.png
+[INFO] Saved REG graph to data/bn5/structure_graph_synchronous.png
+[DONE]
+INFO created data/bn7/stg_synchronous.png
+[INFO] Saved STG to data/bn7/stg_synchronous.png
+INFO created data/bn7/structure_graph_synchronous.png
+[INFO] Saved REG graph to data/bn7/structure_graph_synchronous.png
+[DONE]
+INFO created data/bn10/stg_synchronous.png
+[INFO] Saved STG to data/bn10/stg_synchronous.png
+INFO created data/bn10/structure_graph_synchronous.png
+[INFO] Saved REG graph to data/bn10/structure_graph_synchronous.png
+[DONE]
+[DONE]
+[DONE]
+rm: cannot remove 'data/*/trajectories/': No such file or directory
++ python simulate_paths.py
+Total progress:   0%|          | 0/360 [00:00<?, ?it/s]Total progress:   2%|▏         | 6/360 [00:00<00:06, 53.53it/s]Total progress:   3%|▎         | 12/360 [00:00<00:08, 42.99it/s]Total progress:   5%|▍         | 17/360 [00:00<00:09, 35.98it/s]Total progress:   6%|▌         | 21/360 [00:00<00:14, 23.91it/s]Total progress:   7%|▋         | 24/360 [00:00<00:17, 19.23it/s]Total progress:   8%|▊         | 27/360 [00:01<00:20, 15.92it/s]Total progress:   8%|▊         | 29/360 [00:01<00:20, 15.78it/s]Total progress:   9%|▊         | 31/360 [00:01<00:24, 13.34it/s]Total progress:   9%|▉         | 33/360 [00:01<00:31, 10.36it/s]Total progress:  10%|▉         | 35/360 [00:02<00:30, 10.63it/s]Total progress:  10%|█         | 37/360 [00:02<00:33,  9.72it/s]Total progress:  12%|█▏        | 44/360 [00:02<00:16, 18.94it/s]Total progress:  13%|█▎        | 48/360 [00:02<00:14, 21.65it/s]Total progress:  14%|█▍        | 51/360 [00:02<00:13, 22.78it/s]Total progress:  15%|█▌        | 54/360 [00:02<00:13, 22.27it/s]Total progress:  16%|█▌        | 57/360 [00:03<00:15, 19.41it/s]Total progress:  17%|█▋        | 60/360 [00:03<00:18, 16.66it/s]Total progress:  17%|█▋        | 62/360 [00:03<00:17, 16.88it/s]Total progress:  18%|█▊        | 64/360 [00:03<00:20, 14.66it/s]Total progress:  18%|█▊        | 66/360 [00:03<00:25, 11.68it/s]Total progress:  19%|█▉        | 68/360 [00:04<00:24, 12.02it/s]Total progress:  19%|█▉        | 70/360 [00:04<00:27, 10.36it/s]Total progress:  20%|██        | 72/360 [00:04<00:34,  8.26it/s]Total progress:  22%|██▏       | 78/360 [00:04<00:18, 15.38it/s]Total progress:  23%|██▎       | 83/360 [00:04<00:13, 20.99it/s]Total progress:  24%|██▍       | 87/360 [00:05<00:12, 21.05it/s]Total progress:  25%|██▌       | 90/360 [00:05<00:12, 21.01it/s]Total progress:  26%|██▌       | 93/360 [00:05<00:14, 18.38it/s]Total progress:  27%|██▋       | 96/360 [00:05<00:16, 15.70it/s]Total progress:  27%|██▋       | 98/360 [00:05<00:16, 15.72it/s]Total progress:  28%|██▊       | 100/360 [00:06<00:19, 13.48it/s]Total progress:  28%|██▊       | 102/360 [00:06<00:23, 10.86it/s]Total progress:  29%|██▉       | 104/360 [00:06<00:22, 11.14it/s]Total progress:  29%|██▉       | 106/360 [00:06<00:26,  9.52it/s]Total progress:  30%|███       | 108/360 [00:07<00:33,  7.48it/s]Total progress:  32%|███▏      | 115/360 [00:07<00:15, 15.48it/s]Total progress:  33%|███▎      | 120/360 [00:07<00:12, 19.32it/s]Total progress:  34%|███▍      | 123/360 [00:07<00:11, 19.98it/s]Total progress:  35%|███▌      | 126/360 [00:07<00:11, 20.53it/s]Total progress:  36%|███▌      | 129/360 [00:07<00:12, 18.26it/s]Total progress:  37%|███▋      | 132/360 [00:08<00:14, 15.89it/s]Total progress:  37%|███▋      | 134/360 [00:08<00:14, 15.90it/s]Total progress:  38%|███▊      | 136/360 [00:08<00:16, 13.78it/s]Total progress:  38%|███▊      | 138/360 [00:08<00:19, 11.10it/s]Total progress:  39%|███▉      | 140/360 [00:09<00:19, 11.43it/s]Total progress:  39%|███▉      | 142/360 [00:09<00:22,  9.82it/s]Total progress:  40%|████      | 144/360 [00:09<00:27,  7.78it/s]Total progress:  41%|████▏     | 149/360 [00:09<00:15, 13.42it/s]Total progress:  42%|████▎     | 153/360 [00:09<00:11, 17.64it/s]Total progress:  43%|████▎     | 156/360 [00:09<00:10, 19.35it/s]Total progress:  44%|████▍     | 159/360 [00:10<00:10, 19.87it/s]Total progress:  45%|████▌     | 162/360 [00:10<00:10, 19.42it/s]Total progress:  46%|████▌     | 165/360 [00:10<00:11, 16.73it/s]Total progress:  46%|████▋     | 167/360 [00:10<00:11, 16.64it/s]Total progress:  47%|████▋     | 169/360 [00:10<00:13, 14.00it/s]Total progress:  48%|████▊     | 171/360 [00:11<00:17, 10.78it/s]Total progress:  48%|████▊     | 173/360 [00:11<00:16, 11.38it/s]Total progress:  49%|████▊     | 175/360 [00:11<00:18,  9.97it/s]Total progress:  49%|████▉     | 177/360 [00:12<00:23,  7.79it/s]Total progress:  50%|████▉     | 179/360 [00:12<00:22,  8.08it/s]Total progress:  50%|█████     | 180/360 [00:12<00:28,  6.37it/s]Total progress:  52%|█████▏    | 186/360 [00:12<00:13, 13.35it/s]Total progress:  53%|█████▎    | 191/360 [00:12<00:08, 19.02it/s]Total progress:  54%|█████▍    | 194/360 [00:12<00:08, 20.38it/s]Total progress:  55%|█████▍    | 197/360 [00:13<00:08, 20.09it/s]Total progress:  56%|█████▌    | 200/360 [00:13<00:08, 18.95it/s]Total progress:  56%|█████▋    | 203/360 [00:13<00:09, 16.17it/s]Total progress:  57%|█████▋    | 205/360 [00:13<00:10, 14.26it/s]Total progress:  57%|█████▊    | 207/360 [00:13<00:13, 11.50it/s]Total progress:  58%|█████▊    | 209/360 [00:14<00:12, 12.04it/s]Total progress:  59%|█████▊    | 211/360 [00:14<00:14, 10.57it/s]Total progress:  59%|█████▉    | 213/360 [00:14<00:17,  8.36it/s]Total progress:  60%|█████▉    | 215/360 [00:14<00:16,  8.71it/s]Total progress:  60%|██████    | 216/360 [00:15<00:20,  6.92it/s]Total progress:  60%|██████    | 217/360 [00:15<00:21,  6.66it/s]Total progress:  62%|██████▏   | 222/360 [00:15<00:11, 12.53it/s]Total progress:  63%|██████▎   | 227/360 [00:15<00:07, 18.05it/s]Total progress:  64%|██████▍   | 230/360 [00:15<00:06, 18.82it/s]Total progress:  65%|██████▍   | 233/360 [00:15<00:06, 18.27it/s]Total progress:  66%|██████▌   | 236/360 [00:16<00:07, 16.52it/s]Total progress:  66%|██████▌   | 238/360 [00:16<00:08, 14.58it/s]Total progress:  67%|██████▋   | 240/360 [00:16<00:10, 11.29it/s]Total progress:  67%|██████▋   | 242/360 [00:16<00:10, 11.22it/s]Total progress:  68%|██████▊   | 244/360 [00:17<00:12,  9.48it/s]Total progress:  68%|██████▊   | 246/360 [00:17<00:14,  8.04it/s]Total progress:  69%|██████▉   | 248/360 [00:17<00:13,  8.33it/s]Total progress:  69%|██████▉   | 249/360 [00:18<00:16,  6.58it/s]Total progress:  70%|██████▉   | 251/360 [00:18<00:16,  6.81it/s]Total progress:  70%|███████   | 252/360 [00:18<00:20,  5.17it/s]Total progress:  70%|███████   | 253/360 [00:18<00:18,  5.70it/s]Total progress:  72%|███████▏  | 258/360 [00:18<00:08, 12.06it/s]Total progress:  73%|███████▎  | 263/360 [00:19<00:05, 18.01it/s]Total progress:  74%|███████▍  | 266/360 [00:19<00:04, 19.15it/s]Total progress:  75%|███████▍  | 269/360 [00:19<00:04, 18.98it/s]Total progress:  76%|███████▌  | 272/360 [00:19<00:05, 17.38it/s]Total progress:  76%|███████▋  | 275/360 [00:19<00:05, 14.68it/s]Total progress:  77%|███████▋  | 277/360 [00:20<00:06, 12.61it/s]Total progress:  78%|███████▊  | 279/360 [00:20<00:08,  9.86it/s]Total progress:  78%|███████▊  | 281/360 [00:20<00:07, 10.45it/s]Total progress:  79%|███████▊  | 283/360 [00:20<00:08,  9.28it/s]Total progress:  79%|███████▉  | 285/360 [00:21<00:10,  7.25it/s]Total progress:  80%|███████▉  | 287/360 [00:21<00:09,  7.42it/s]Total progress:  80%|████████  | 288/360 [00:21<00:12,  5.82it/s]WARNING The state transition graph will consist of up to 2**16=65536 states, depending on the initial states.
+Total progress:  80%|████████  | 289/360 [00:23<00:37,  1.91it/s]Total progress:  82%|████████▏ | 294/360 [00:24<00:15,  4.27it/s]Total progress:  83%|████████▎ | 298/360 [00:24<00:09,  6.62it/s]Total progress:  84%|████████▎ | 301/360 [00:24<00:07,  8.33it/s]Total progress:  84%|████████▍ | 304/360 [00:24<00:05,  9.73it/s]Total progress:  85%|████████▌ | 307/360 [00:24<00:05, 10.51it/s]Total progress:  86%|████████▌ | 309/360 [00:24<00:05,  9.83it/s]Total progress:  86%|████████▋ | 311/360 [00:25<00:04, 10.35it/s]Total progress:  87%|████████▋ | 313/360 [00:25<00:05,  9.18it/s]Total progress:  88%|████████▊ | 315/360 [00:25<00:06,  7.22it/s]Total progress:  88%|████████▊ | 317/360 [00:26<00:05,  8.02it/s]Total progress:  89%|████████▊ | 319/360 [00:26<00:05,  7.40it/s]Total progress:  89%|████████▉ | 320/360 [00:26<00:05,  7.04it/s]Total progress:  89%|████████▉ | 321/360 [00:26<00:07,  5.46it/s]Total progress:  90%|████████▉ | 323/360 [00:27<00:06,  5.72it/s]Total progress:  90%|█████████ | 324/360 [00:27<00:08,  4.32it/s]WARNING The state transition graph will consist of up to 2**16=65536 states, depending on the initial states.
+Total progress:  90%|█████████ | 325/360 [00:28<00:13,  2.51it/s]Total progress:  92%|█████████▏| 330/360 [00:28<00:05,  5.97it/s]Total progress:  93%|█████████▎| 335/360 [00:28<00:02,  9.87it/s]Total progress:  94%|█████████▍| 338/360 [00:29<00:01, 11.55it/s]Total progress:  95%|█████████▍| 341/360 [00:29<00:01, 12.67it/s]Total progress:  96%|█████████▌| 344/360 [00:29<00:01, 12.19it/s]Total progress:  96%|█████████▌| 346/360 [00:29<00:01, 11.64it/s]Total progress:  97%|█████████▋| 348/360 [00:29<00:01,  9.69it/s]Total progress:  97%|█████████▋| 350/360 [00:30<00:01,  9.93it/s]Total progress:  98%|█████████▊| 352/360 [00:30<00:00,  8.66it/s]Total progress:  98%|█████████▊| 354/360 [00:30<00:00,  7.51it/s]Total progress:  99%|█████████▉| 356/360 [00:31<00:00,  7.82it/s]Total progress:  99%|█████████▉| 357/360 [00:31<00:00,  6.21it/s]Total progress: 100%|█████████▉| 359/360 [00:31<00:00,  6.42it/s]Total progress: 100%|██████████| 360/360 [00:32<00:00,  4.90it/s]Total progress: 100%|██████████| 360/360 [00:32<00:00, 11.21it/s]
+rm: cannot remove 'data/bn*/reconstruction_results.csv': No such file or directory
+Processing data/bn5
+  Trajectory: trajectory_asynchronous_step20_numtraj100_freq1_attper0.8114285714285714.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj100_freq3_attper0.920952380952381.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj100_freq5_attper0.9319047619047619.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj20_freq1_attper0.819047619047619.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj20_freq3_attper0.9095238095238095.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj20_freq5_attper0.9357142857142857.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj50_freq1_attper0.8076190476190476.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj50_freq3_attper0.9247619047619048.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj50_freq5_attper0.9352380952380952.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj100_freq1_attper0.9166666666666666.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj100_freq3_attper0.9649019607843137.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj100_freq5_attper0.9723529411764706.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj20_freq1_attper0.9490196078431372.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj20_freq3_attper0.9598039215686275.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj20_freq5_attper0.9754901960784313.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj50_freq1_attper0.9117647058823529.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj50_freq3_attper0.9592156862745098.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj50_freq5_attper0.9729411764705882.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj100_freq1_attper0.505.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj100_freq3_attper0.64.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj100_freq5_attper0.81.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj20_freq1_attper0.43333333333333335.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj20_freq3_attper0.5416666666666666.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj20_freq5_attper0.7833333333333333.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj50_freq1_attper0.44666666666666666.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj50_freq3_attper0.6066666666666667.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj50_freq5_attper0.8033333333333333.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj100_freq1_attper0.9517283950617283.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj100_freq3_attper0.9808641975308642.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj100_freq5_attper0.9844444444444445.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj20_freq1_attper0.9259259259259259.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj20_freq3_attper0.9845679012345679.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj20_freq5_attper0.9827160493827161.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj50_freq1_attper0.9432098765432099.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj50_freq3_attper0.9809876543209877.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj50_freq5_attper0.9837037037037037.csv
+  Trajectory: trajectory_synchronous_step20_numtraj100_freq1_attper0.9275.csv
+  Trajectory: trajectory_synchronous_step20_numtraj100_freq3_attper0.9565.csv
+  Trajectory: trajectory_synchronous_step20_numtraj100_freq5_attper0.9565.csv
+  Trajectory: trajectory_synchronous_step20_numtraj20_freq1_attper0.9175.csv
+  Trajectory: trajectory_synchronous_step20_numtraj20_freq3_attper0.955.csv
+  Trajectory: trajectory_synchronous_step20_numtraj20_freq5_attper0.955.csv
+  Trajectory: trajectory_synchronous_step20_numtraj50_freq1_attper0.925.csv
+  Trajectory: trajectory_synchronous_step20_numtraj50_freq3_attper0.955.csv
+  Trajectory: trajectory_synchronous_step20_numtraj50_freq5_attper0.955.csv
+  Trajectory: trajectory_synchronous_step50_numtraj100_freq1_attper0.971.csv
+  Trajectory: trajectory_synchronous_step50_numtraj100_freq3_attper0.9826.csv
+  Trajectory: trajectory_synchronous_step50_numtraj100_freq5_attper0.9826.csv
+  Trajectory: trajectory_synchronous_step50_numtraj20_freq1_attper0.967.csv
+  Trajectory: trajectory_synchronous_step50_numtraj20_freq3_attper0.982.csv
+  Trajectory: trajectory_synchronous_step50_numtraj20_freq5_attper0.982.csv
+  Trajectory: trajectory_synchronous_step50_numtraj50_freq1_attper0.97.csv
+  Trajectory: trajectory_synchronous_step50_numtraj50_freq3_attper0.982.csv
+  Trajectory: trajectory_synchronous_step50_numtraj50_freq5_attper0.982.csv
+  Trajectory: trajectory_synchronous_step5_numtraj100_freq1_attper0.71.csv
+  Trajectory: trajectory_synchronous_step5_numtraj100_freq3_attper0.826.csv
+  Trajectory: trajectory_synchronous_step5_numtraj100_freq5_attper0.826.csv
+  Trajectory: trajectory_synchronous_step5_numtraj20_freq1_attper0.67.csv
+  Trajectory: trajectory_synchronous_step5_numtraj20_freq3_attper0.82.csv
+  Trajectory: trajectory_synchronous_step5_numtraj20_freq5_attper0.82.csv
+  Trajectory: trajectory_synchronous_step5_numtraj50_freq1_attper0.7.csv
+  Trajectory: trajectory_synchronous_step5_numtraj50_freq3_attper0.82.csv
+  Trajectory: trajectory_synchronous_step5_numtraj50_freq5_attper0.82.csv
+  Trajectory: trajectory_synchronous_step80_numtraj100_freq1_attper0.981875.csv
+  Trajectory: trajectory_synchronous_step80_numtraj100_freq3_attper0.989125.csv
+  Trajectory: trajectory_synchronous_step80_numtraj100_freq5_attper0.989125.csv
+  Trajectory: trajectory_synchronous_step80_numtraj20_freq1_attper0.979375.csv
+  Trajectory: trajectory_synchronous_step80_numtraj20_freq3_attper0.98875.csv
+  Trajectory: trajectory_synchronous_step80_numtraj20_freq5_attper0.98875.csv
+  Trajectory: trajectory_synchronous_step80_numtraj50_freq1_attper0.98125.csv
+  Trajectory: trajectory_synchronous_step80_numtraj50_freq3_attper0.98875.csv
+  Trajectory: trajectory_synchronous_step80_numtraj50_freq5_attper0.98875.csv
+  Completed inference 1 for all trajectories. Starting inference 2 and evaluation.
+ IDs: bcb0104ad6986f80 85b8cfc4488306b9 29ec0b1a0561b85d 9c3d7cad594af846 1e60e136b99339de 4a917b1e41714277 a079c5051d61deeb 29c8f6d0e013343f b150a2d1f43f46f1 4fda5993fc119171 f5fb5a877f26b10e 0915fc8de151d212 c0134f24e7ee5d16 8db1f173a5e3cbc1 439d41eaf12f0922 d743972dfca3b982 98db12390101af6a c96cf5a71bef45c3 29dfa145c80ffbd1 bc47ba961fa34a8e 2df7b9e4df43bb57 ab7a4037b82d4b2d 09ebad295c52554b 61467689320fcfba ef7adbaa2fef3a54 f4990c759f543815 ae1a36edccc3c72e 3c1d272d08480fcb 409fc758fb49abdd f151421267140dcb 8a239ba30195bbef 33d3bc6a70c91ca4 bc6e9b023bdcac1f 3e5a407f322fd22f 240462f58956633d a12e97761794e580 e0656499f518a933 01e5542662cb200a 2641aae73272711b fbfe89df42afc2aa 5f77298e0f4b95a9 1fa85930d75bc1cc 76ca65cf17de76e0 f14f83b38e0c24c0 267e00c88cbf06b0 8994ecc3127b7af3 0e1f6caf80b9e104 4b78b32c29694b3f 91a71493f63bd300 540082fb96619f8d 025480e875659f14 32f04e009ba303b0 3b65e00954759a32 ec7776affdb215a5 45f149ff74d93bdb f423ce60c9a8db04 3c21aca14b48c9a1 bb30e8914eebce19 92e91184ec303b08 ee890d7dc7c36493 aba4b5194a48d609 c01fe78ca78cdc83 388eb38bf42f2150 f4464908ab54b5af 74c12df55c53b7b5 d854cf307cd23227 7948cf2243f2819c 9826f8e8e69063ca b32fa98bb4285877 215cf4ba49973345 9941636cb51bab9f 0e949846be055d10
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj100_freq1_attper0.8114285714285714.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj100_freq3_attper0.920952380952381.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj100_freq5_attper0.9319047619047619.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj20_freq1_attper0.819047619047619.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj20_freq3_attper0.9095238095238095.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj20_freq5_attper0.9357142857142857.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj50_freq1_attper0.8076190476190476.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj50_freq3_attper0.9247619047619048.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj50_freq5_attper0.9352380952380952.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj100_freq1_attper0.9166666666666666.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj100_freq3_attper0.9649019607843137.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj100_freq5_attper0.9723529411764706.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj20_freq1_attper0.9490196078431372.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj20_freq3_attper0.9598039215686275.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj20_freq5_attper0.9754901960784313.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj50_freq1_attper0.9117647058823529.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj50_freq3_attper0.9592156862745098.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj50_freq5_attper0.9729411764705882.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj100_freq1_attper0.505.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj100_freq3_attper0.64.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj100_freq5_attper0.81.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj20_freq1_attper0.43333333333333335.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj20_freq3_attper0.5416666666666666.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj20_freq5_attper0.7833333333333333.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj50_freq1_attper0.44666666666666666.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj50_freq3_attper0.6066666666666667.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj50_freq5_attper0.8033333333333333.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj100_freq1_attper0.9517283950617283.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj100_freq3_attper0.9808641975308642.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj100_freq5_attper0.9844444444444445.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj20_freq1_attper0.9259259259259259.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj20_freq3_attper0.9845679012345679.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj20_freq5_attper0.9827160493827161.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj50_freq1_attper0.9432098765432099.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj50_freq3_attper0.9809876543209877.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj50_freq5_attper0.9837037037037037.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj100_freq1_attper0.9275.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj100_freq3_attper0.9565.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj100_freq5_attper0.9565.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj20_freq1_attper0.9175.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj20_freq3_attper0.955.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj20_freq5_attper0.955.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj50_freq1_attper0.925.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj50_freq3_attper0.955.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj50_freq5_attper0.955.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj100_freq1_attper0.971.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj100_freq3_attper0.9826.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj100_freq5_attper0.9826.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj20_freq1_attper0.967.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj20_freq3_attper0.982.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj20_freq5_attper0.982.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj50_freq1_attper0.97.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj50_freq3_attper0.982.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj50_freq5_attper0.982.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj100_freq1_attper0.71.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj100_freq3_attper0.826.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj100_freq5_attper0.826.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj20_freq1_attper0.67.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj20_freq3_attper0.82.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj20_freq5_attper0.82.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj50_freq1_attper0.7.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj50_freq3_attper0.82.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj50_freq5_attper0.82.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj100_freq1_attper0.981875.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj100_freq3_attper0.989125.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj100_freq5_attper0.989125.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj20_freq1_attper0.979375.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj20_freq3_attper0.98875.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj20_freq5_attper0.98875.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj50_freq1_attper0.98125.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj50_freq3_attper0.98875.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj50_freq5_attper0.98875.csv
+Completed processing for data/bn5
+Processing data/bn7
+  Trajectory: trajectory_asynchronous_step20_numtraj100_freq1_attper0.840952380952381.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj100_freq3_attper0.9338095238095238.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj100_freq5_attper0.949047619047619.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj20_freq1_attper0.8666666666666667.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj20_freq3_attper0.9333333333333333.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj20_freq5_attper0.9476190476190476.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj50_freq1_attper0.8476190476190476.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj50_freq3_attper0.9333333333333333.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj50_freq5_attper0.9495238095238095.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj100_freq1_attper0.9376470588235294.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj100_freq3_attper0.9725490196078431.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj100_freq5_attper0.9784313725490196.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj20_freq1_attper0.9362745098039216.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj20_freq3_attper0.9754901960784313.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj20_freq5_attper0.9774509803921568.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj50_freq1_attper0.9435294117647058.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj50_freq3_attper0.9733333333333334.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj50_freq5_attper0.9788235294117648.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj100_freq1_attper0.46166666666666667.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj100_freq3_attper0.7583333333333333.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj100_freq5_attper0.83.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj20_freq1_attper0.3333333333333333.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj20_freq3_attper0.7583333333333333.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj20_freq5_attper0.8333333333333334.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj50_freq1_attper0.42.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj50_freq3_attper0.76.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj50_freq5_attper0.8266666666666667.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj100_freq1_attper0.9571604938271605.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj100_freq3_attper0.9823456790123457.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj100_freq5_attper0.9866666666666667.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj20_freq1_attper0.9549382716049383.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj20_freq3_attper0.9851851851851852.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj20_freq5_attper0.9876543209876543.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj50_freq1_attper0.96.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj50_freq3_attper0.9832098765432099.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj50_freq5_attper0.9869135802469136.csv
+  Trajectory: trajectory_synchronous_step20_numtraj100_freq1_attper0.9335.csv
+  Trajectory: trajectory_synchronous_step20_numtraj100_freq3_attper0.9505.csv
+  Trajectory: trajectory_synchronous_step20_numtraj100_freq5_attper0.9505.csv
+  Trajectory: trajectory_synchronous_step20_numtraj20_freq1_attper0.935.csv
+  Trajectory: trajectory_synchronous_step20_numtraj20_freq3_attper0.95.csv
+  Trajectory: trajectory_synchronous_step20_numtraj20_freq5_attper0.95.csv
+  Trajectory: trajectory_synchronous_step20_numtraj50_freq1_attper0.935.csv
+  Trajectory: trajectory_synchronous_step20_numtraj50_freq3_attper0.951.csv
+  Trajectory: trajectory_synchronous_step20_numtraj50_freq5_attper0.951.csv
+  Trajectory: trajectory_synchronous_step50_numtraj100_freq1_attper0.9734.csv
+  Trajectory: trajectory_synchronous_step50_numtraj100_freq3_attper0.9802.csv
+  Trajectory: trajectory_synchronous_step50_numtraj100_freq5_attper0.9802.csv
+  Trajectory: trajectory_synchronous_step50_numtraj20_freq1_attper0.974.csv
+  Trajectory: trajectory_synchronous_step50_numtraj20_freq3_attper0.98.csv
+  Trajectory: trajectory_synchronous_step50_numtraj20_freq5_attper0.98.csv
+  Trajectory: trajectory_synchronous_step50_numtraj50_freq1_attper0.974.csv
+  Trajectory: trajectory_synchronous_step50_numtraj50_freq3_attper0.9804.csv
+  Trajectory: trajectory_synchronous_step50_numtraj50_freq5_attper0.9804.csv
+  Trajectory: trajectory_synchronous_step5_numtraj100_freq1_attper0.734.csv
+  Trajectory: trajectory_synchronous_step5_numtraj100_freq3_attper0.802.csv
+  Trajectory: trajectory_synchronous_step5_numtraj100_freq5_attper0.802.csv
+  Trajectory: trajectory_synchronous_step5_numtraj20_freq1_attper0.74.csv
+  Trajectory: trajectory_synchronous_step5_numtraj20_freq3_attper0.8.csv
+  Trajectory: trajectory_synchronous_step5_numtraj20_freq5_attper0.8.csv
+  Trajectory: trajectory_synchronous_step5_numtraj50_freq1_attper0.74.csv
+  Trajectory: trajectory_synchronous_step5_numtraj50_freq3_attper0.804.csv
+  Trajectory: trajectory_synchronous_step5_numtraj50_freq5_attper0.804.csv
+  Trajectory: trajectory_synchronous_step80_numtraj100_freq1_attper0.983375.csv
+  Trajectory: trajectory_synchronous_step80_numtraj100_freq3_attper0.987625.csv
+  Trajectory: trajectory_synchronous_step80_numtraj100_freq5_attper0.987625.csv
+  Trajectory: trajectory_synchronous_step80_numtraj20_freq1_attper0.98375.csv
+  Trajectory: trajectory_synchronous_step80_numtraj20_freq3_attper0.9875.csv
+  Trajectory: trajectory_synchronous_step80_numtraj20_freq5_attper0.9875.csv
+  Trajectory: trajectory_synchronous_step80_numtraj50_freq1_attper0.98375.csv
+  Trajectory: trajectory_synchronous_step80_numtraj50_freq3_attper0.98775.csv
+  Trajectory: trajectory_synchronous_step80_numtraj50_freq5_attper0.98775.csv
+  Completed inference 1 for all trajectories. Starting inference 2 and evaluation.
+ IDs: 07e544adfc4ae309 e76cee69cc1314ff 01017700d3b298e2 f2bf3671616d3a64 45fa55a54d79f105 6e29e0f8cc9b7901 8258790701a02507 079fd02563ff3d44 86bd42e88a029d8e 15e9a03a8f70e57a 06645544a5b803a8 12f2fe22249d3ad5 33ed0c882a74640f 638b3d9897d70a12 c73e2a6b034f5517 1cc302e1df262ba6 25d5b8f63c708ebe 8f9d65eef1c62be2 c465129f4fc02aa5 5784fc366698b480 daa29ee1088246fa 6ae6f08fc478fe68 fdd839e3ca46408b ebbc83fe2c2386d0 41d6d902a45f68ee 08c19473431739e9 07952d4611d5b2f4 a8b95d0154ab9256 a745558f387fc975 048cd02beda8da53 a5be7ee813bdd1f1 a342760030a4dba9 aaca5389141cfb35 754298b20e11279d b03fb71a12e34290 d74466cfba226ff6 6ad5344363fdb2b5 4eaa67fb862243c4 bfe25cb094287a4d 3e12aaa26d90cd96 d0fc63451907a9e6 8f8dff1c197856bf 92b8ef53d0f05880 884f5587d79745b8 ebd890e7e7b82616 3255fc179ba5746b ff215b6d0d5c5c60 a6bc86d70dd823cf 60ca10dcf990946b 6255b5dc9eab9ac5 7b68873f7bb3adf3 0d4046012a087766 198d1f8fbc50344c 57eb8557a7958710 eb243d1811b6acdb 18f4b2cd078d85d3 df150af0d2fd969e aa78d30d62de3bd9 e228ffc03373712a 4196b828b8769f2a b9be48d6d5523ece 3646d666d6b8128d 8732f0092adefc3e f03f5c531df512c4 3551a944772fbc5c 08399e525c4c137b 42bd25ff19675c21 e818a3f254dd48b9 6a1c4b96a66f461b 608d97db08219094 a00c7bf07d2128c7 8a51acd375fe2ebe
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj100_freq1_attper0.840952380952381.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj100_freq3_attper0.9338095238095238.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj100_freq5_attper0.949047619047619.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj20_freq1_attper0.8666666666666667.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj20_freq3_attper0.9333333333333333.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj20_freq5_attper0.9476190476190476.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj50_freq1_attper0.8476190476190476.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj50_freq3_attper0.9333333333333333.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj50_freq5_attper0.9495238095238095.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj100_freq1_attper0.9376470588235294.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj100_freq3_attper0.9725490196078431.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj100_freq5_attper0.9784313725490196.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj20_freq1_attper0.9362745098039216.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj20_freq3_attper0.9754901960784313.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj20_freq5_attper0.9774509803921568.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj50_freq1_attper0.9435294117647058.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj50_freq3_attper0.9733333333333334.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj50_freq5_attper0.9788235294117648.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj100_freq1_attper0.46166666666666667.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj100_freq3_attper0.7583333333333333.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj100_freq5_attper0.83.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj20_freq1_attper0.3333333333333333.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj20_freq3_attper0.7583333333333333.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj20_freq5_attper0.8333333333333334.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj50_freq1_attper0.42.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj50_freq3_attper0.76.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj50_freq5_attper0.8266666666666667.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj100_freq1_attper0.9571604938271605.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj100_freq3_attper0.9823456790123457.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj100_freq5_attper0.9866666666666667.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj20_freq1_attper0.9549382716049383.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj20_freq3_attper0.9851851851851852.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj20_freq5_attper0.9876543209876543.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj50_freq1_attper0.96.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj50_freq3_attper0.9832098765432099.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj50_freq5_attper0.9869135802469136.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj100_freq1_attper0.9335.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj100_freq3_attper0.9505.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj100_freq5_attper0.9505.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj20_freq1_attper0.935.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj20_freq3_attper0.95.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj20_freq5_attper0.95.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj50_freq1_attper0.935.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj50_freq3_attper0.951.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj50_freq5_attper0.951.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj100_freq1_attper0.9734.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj100_freq3_attper0.9802.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj100_freq5_attper0.9802.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj20_freq1_attper0.974.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj20_freq3_attper0.98.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj20_freq5_attper0.98.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj50_freq1_attper0.974.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj50_freq3_attper0.9804.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj50_freq5_attper0.9804.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj100_freq1_attper0.734.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj100_freq3_attper0.802.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj100_freq5_attper0.802.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj20_freq1_attper0.74.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj20_freq3_attper0.8.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj20_freq5_attper0.8.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj50_freq1_attper0.74.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj50_freq3_attper0.804.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj50_freq5_attper0.804.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj100_freq1_attper0.983375.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj100_freq3_attper0.987625.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj100_freq5_attper0.987625.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj20_freq1_attper0.98375.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj20_freq3_attper0.9875.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj20_freq5_attper0.9875.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj50_freq1_attper0.98375.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj50_freq3_attper0.98775.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj50_freq5_attper0.98775.csv
+Completed processing for data/bn7
+Processing data/bn10
+  Trajectory: trajectory_asynchronous_step20_numtraj100_freq1_attper0.7023809523809523.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj100_freq3_attper0.8814285714285715.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj100_freq5_attper0.9233333333333333.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj20_freq1_attper0.7166666666666667.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj20_freq3_attper0.8690476190476191.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj20_freq5_attper0.9285714285714286.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj50_freq1_attper0.7257142857142858.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj50_freq3_attper0.8752380952380953.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj50_freq5_attper0.9295238095238095.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj100_freq1_attper0.8788235294117647.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj100_freq3_attper0.95.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj100_freq5_attper0.9672549019607843.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj20_freq1_attper0.8813725490196078.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj20_freq3_attper0.946078431372549.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj20_freq5_attper0.9686274509803922.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj50_freq1_attper0.8752941176470588.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj50_freq3_attper0.9462745098039216.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj50_freq5_attper0.9686274509803922.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj100_freq1_attper0.15.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj100_freq3_attper0.6333333333333333.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj100_freq5_attper0.7266666666666667.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj20_freq1_attper0.15833333333333333.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj20_freq3_attper0.5916666666666667.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj20_freq5_attper0.725.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj50_freq1_attper0.19.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj50_freq3_attper0.63.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj50_freq5_attper0.73.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj100_freq1_attper0.9207407407407407.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj100_freq3_attper0.9686419753086419.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj100_freq5_attper0.98.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj20_freq1_attper0.9296296296296296.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj20_freq3_attper0.9703703703703703.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj20_freq5_attper0.9827160493827161.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj50_freq1_attper0.9217283950617284.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj50_freq3_attper0.9698765432098766.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj50_freq5_attper0.9812345679012345.csv
+  Trajectory: trajectory_synchronous_step20_numtraj100_freq1_attper0.9135.csv
+  Trajectory: trajectory_synchronous_step20_numtraj100_freq3_attper0.9505.csv
+  Trajectory: trajectory_synchronous_step20_numtraj100_freq5_attper0.9505.csv
+  Trajectory: trajectory_synchronous_step20_numtraj20_freq1_attper0.9175.csv
+  Trajectory: trajectory_synchronous_step20_numtraj20_freq3_attper0.95.csv
+  Trajectory: trajectory_synchronous_step20_numtraj20_freq5_attper0.95.csv
+  Trajectory: trajectory_synchronous_step20_numtraj50_freq1_attper0.912.csv
+  Trajectory: trajectory_synchronous_step20_numtraj50_freq3_attper0.95.csv
+  Trajectory: trajectory_synchronous_step20_numtraj50_freq5_attper0.95.csv
+  Trajectory: trajectory_synchronous_step50_numtraj100_freq1_attper0.9654.csv
+  Trajectory: trajectory_synchronous_step50_numtraj100_freq3_attper0.9802.csv
+  Trajectory: trajectory_synchronous_step50_numtraj100_freq5_attper0.9802.csv
+  Trajectory: trajectory_synchronous_step50_numtraj20_freq1_attper0.967.csv
+  Trajectory: trajectory_synchronous_step50_numtraj20_freq3_attper0.98.csv
+  Trajectory: trajectory_synchronous_step50_numtraj20_freq5_attper0.98.csv
+  Trajectory: trajectory_synchronous_step50_numtraj50_freq1_attper0.9648.csv
+  Trajectory: trajectory_synchronous_step50_numtraj50_freq3_attper0.98.csv
+  Trajectory: trajectory_synchronous_step50_numtraj50_freq5_attper0.98.csv
+  Trajectory: trajectory_synchronous_step5_numtraj100_freq1_attper0.654.csv
+  Trajectory: trajectory_synchronous_step5_numtraj100_freq3_attper0.802.csv
+  Trajectory: trajectory_synchronous_step5_numtraj100_freq5_attper0.802.csv
+  Trajectory: trajectory_synchronous_step5_numtraj20_freq1_attper0.67.csv
+  Trajectory: trajectory_synchronous_step5_numtraj20_freq3_attper0.8.csv
+  Trajectory: trajectory_synchronous_step5_numtraj20_freq5_attper0.8.csv
+  Trajectory: trajectory_synchronous_step5_numtraj50_freq1_attper0.648.csv
+  Trajectory: trajectory_synchronous_step5_numtraj50_freq3_attper0.8.csv
+  Trajectory: trajectory_synchronous_step5_numtraj50_freq5_attper0.8.csv
+  Trajectory: trajectory_synchronous_step80_numtraj100_freq1_attper0.978375.csv
+  Trajectory: trajectory_synchronous_step80_numtraj100_freq3_attper0.987625.csv
+  Trajectory: trajectory_synchronous_step80_numtraj100_freq5_attper0.987625.csv
+  Trajectory: trajectory_synchronous_step80_numtraj20_freq1_attper0.979375.csv
+  Trajectory: trajectory_synchronous_step80_numtraj20_freq3_attper0.9875.csv
+  Trajectory: trajectory_synchronous_step80_numtraj20_freq5_attper0.9875.csv
+  Trajectory: trajectory_synchronous_step80_numtraj50_freq1_attper0.978.csv
+  Trajectory: trajectory_synchronous_step80_numtraj50_freq3_attper0.9875.csv
+  Trajectory: trajectory_synchronous_step80_numtraj50_freq5_attper0.9875.csv
+  Completed inference 1 for all trajectories. Starting inference 2 and evaluation.
+ IDs: 63bcac34db5a70fe 8af776b2632d9052 0c3c898883905d40 09694b8dcc3688a8 b6fadb2cf06715e3 1306a66331968ffd 18b9d139878d534f d614ca85664cb50b 39b48b150f31dfe3 d61d3c239c906ab4 f9d761a7185ce7f4 2a8ab1c23e7f339e 4043b31155d701c0 fa5c0be2951df8ea 58f65795e956df0c 07889829655d0785 1d730dfc2b105713 3f8ba59af0814f60 95c0055216c9faa8 5e31056ca5b22402 7377d5db0c160e59 786e623b7afe3669 c72f52e57c228458 53cd60329bd213af c630039d1613cc3d 10b35fb70c1d374b 186bae84fea77d53 d35f6fb5bd6e84c8 5db5102de6bb5214 80ff39fc646a296c 324146f7940f8691 1f7c8e84532d6a39 e1cfc50830484ec4 0fdf3523223f6dc0 8f26242e29a35b0e 4c7d4570cc39dfa3 7d95c4197c47d035 2db6f4958a86f924 119817da50f9d258 9aae8820fac12309 4ef15b36f2c69b48 2407a08341910134 9a8bc2649ca8d7b8 0542faa80474b623 e70fb55898045694 ff39f42e25a709ae afd178cef6e8136f c550b53ed60d6b88 543fdfd73560de38 259df70d6eb349ac 774863da71526de8 4e14e332c3dcd0f0 217906d08b74f614 a0c615857f4bc54f 135360547b0270f0 b9d6d6ac117d84f1 8a289f5a51d641c9 975849803ec126b0 794e4393b76c78c9 139ae264b9ac8077 b9168f85f28a8c8e 18c17dd284d66c28 bc5448f3faf25df9 818edf3b8353d98d ac583002f6c837df 780c1424f2aa8e79 c07862327f292331 5d7537d284b7d394 be331435bb0990c4 a01b8470bed02dc8 6423542bde0e32ca 2569006dbf7347ae
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj100_freq1_attper0.7023809523809523.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj100_freq3_attper0.8814285714285715.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj100_freq5_attper0.9233333333333333.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj20_freq1_attper0.7166666666666667.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj20_freq3_attper0.8690476190476191.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj20_freq5_attper0.9285714285714286.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj50_freq1_attper0.7257142857142858.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj50_freq3_attper0.8752380952380953.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj50_freq5_attper0.9295238095238095.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj100_freq1_attper0.8788235294117647.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj100_freq3_attper0.95.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj100_freq5_attper0.9672549019607843.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj20_freq1_attper0.8813725490196078.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj20_freq3_attper0.946078431372549.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj20_freq5_attper0.9686274509803922.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj50_freq1_attper0.8752941176470588.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj50_freq3_attper0.9462745098039216.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj50_freq5_attper0.9686274509803922.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj100_freq1_attper0.15.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj100_freq3_attper0.6333333333333333.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj100_freq5_attper0.7266666666666667.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj20_freq1_attper0.15833333333333333.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj20_freq3_attper0.5916666666666667.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj20_freq5_attper0.725.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj50_freq1_attper0.19.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj50_freq3_attper0.63.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj50_freq5_attper0.73.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj100_freq1_attper0.9207407407407407.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj100_freq3_attper0.9686419753086419.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj100_freq5_attper0.98.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj20_freq1_attper0.9296296296296296.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj20_freq3_attper0.9703703703703703.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj20_freq5_attper0.9827160493827161.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj50_freq1_attper0.9217283950617284.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj50_freq3_attper0.9698765432098766.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj50_freq5_attper0.9812345679012345.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj100_freq1_attper0.9135.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj100_freq3_attper0.9505.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj100_freq5_attper0.9505.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj20_freq1_attper0.9175.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj20_freq3_attper0.95.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj20_freq5_attper0.95.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj50_freq1_attper0.912.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj50_freq3_attper0.95.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj50_freq5_attper0.95.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj100_freq1_attper0.9654.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj100_freq3_attper0.9802.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj100_freq5_attper0.9802.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj20_freq1_attper0.967.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj20_freq3_attper0.98.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj20_freq5_attper0.98.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj50_freq1_attper0.9648.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj50_freq3_attper0.98.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj50_freq5_attper0.98.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj100_freq1_attper0.654.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj100_freq3_attper0.802.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj100_freq5_attper0.802.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj20_freq1_attper0.67.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj20_freq3_attper0.8.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj20_freq5_attper0.8.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj50_freq1_attper0.648.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj50_freq3_attper0.8.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj50_freq5_attper0.8.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj100_freq1_attper0.978375.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj100_freq3_attper0.987625.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj100_freq5_attper0.987625.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj20_freq1_attper0.979375.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj20_freq3_attper0.9875.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj20_freq5_attper0.9875.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj50_freq1_attper0.978.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj50_freq3_attper0.9875.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj50_freq5_attper0.9875.csv
+Completed processing for data/bn10
+Processing data/bn13
+  Trajectory: trajectory_asynchronous_step20_numtraj100_freq1_attper0.5804761904761905.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj100_freq3_attper0.8214285714285714.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj100_freq5_attper0.8923809523809524.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj20_freq1_attper0.6214285714285714.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj20_freq3_attper0.8238095238095238.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj20_freq5_attper0.8857142857142857.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj50_freq1_attper0.5961904761904762.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj50_freq3_attper0.8323809523809523.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj50_freq5_attper0.8876190476190476.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj100_freq1_attper0.8288235294117647.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj100_freq3_attper0.933921568627451.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj100_freq5_attper0.9576470588235294.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj20_freq1_attper0.8254901960784313.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj20_freq3_attper0.9382352941176471.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj20_freq5_attper0.9568627450980393.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj50_freq1_attper0.8286274509803921.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj50_freq3_attper0.9380392156862745.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj50_freq5_attper0.9556862745098039.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj100_freq1_attper0.07.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj100_freq3_attper0.45166666666666666.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj100_freq5_attper0.5933333333333334.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj20_freq1_attper0.06666666666666667.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj20_freq3_attper0.45.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj20_freq5_attper0.5666666666666667.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj50_freq1_attper0.043333333333333335.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj50_freq3_attper0.44666666666666666.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj50_freq5_attper0.58.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj100_freq1_attper0.8780246913580247.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj100_freq3_attper0.9544444444444444.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj100_freq5_attper0.9707407407407408.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj20_freq1_attper0.8728395061728395.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj20_freq3_attper0.9611111111111111.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj20_freq5_attper0.9679012345679012.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj50_freq1_attper0.8758024691358025.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj50_freq3_attper0.957283950617284.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj50_freq5_attper0.9696296296296296.csv
+  Trajectory: trajectory_synchronous_step20_numtraj100_freq1_attper0.866.csv
+  Trajectory: trajectory_synchronous_step20_numtraj100_freq3_attper0.942.csv
+  Trajectory: trajectory_synchronous_step20_numtraj100_freq5_attper0.95.csv
+  Trajectory: trajectory_synchronous_step20_numtraj20_freq1_attper0.885.csv
+  Trajectory: trajectory_synchronous_step20_numtraj20_freq3_attper0.9475.csv
+  Trajectory: trajectory_synchronous_step20_numtraj20_freq5_attper0.95.csv
+  Trajectory: trajectory_synchronous_step20_numtraj50_freq1_attper0.873.csv
+  Trajectory: trajectory_synchronous_step20_numtraj50_freq3_attper0.944.csv
+  Trajectory: trajectory_synchronous_step20_numtraj50_freq5_attper0.95.csv
+  Trajectory: trajectory_synchronous_step50_numtraj100_freq1_attper0.9464.csv
+  Trajectory: trajectory_synchronous_step50_numtraj100_freq3_attper0.9768.csv
+  Trajectory: trajectory_synchronous_step50_numtraj100_freq5_attper0.98.csv
+  Trajectory: trajectory_synchronous_step50_numtraj20_freq1_attper0.954.csv
+  Trajectory: trajectory_synchronous_step50_numtraj20_freq3_attper0.979.csv
+  Trajectory: trajectory_synchronous_step50_numtraj20_freq5_attper0.98.csv
+  Trajectory: trajectory_synchronous_step50_numtraj50_freq1_attper0.9492.csv
+  Trajectory: trajectory_synchronous_step50_numtraj50_freq3_attper0.9776.csv
+  Trajectory: trajectory_synchronous_step50_numtraj50_freq5_attper0.98.csv
+  Trajectory: trajectory_synchronous_step5_numtraj100_freq1_attper0.464.csv
+  Trajectory: trajectory_synchronous_step5_numtraj100_freq3_attper0.768.csv
+  Trajectory: trajectory_synchronous_step5_numtraj100_freq5_attper0.8.csv
+  Trajectory: trajectory_synchronous_step5_numtraj20_freq1_attper0.54.csv
+  Trajectory: trajectory_synchronous_step5_numtraj20_freq3_attper0.79.csv
+  Trajectory: trajectory_synchronous_step5_numtraj20_freq5_attper0.8.csv
+  Trajectory: trajectory_synchronous_step5_numtraj50_freq1_attper0.492.csv
+  Trajectory: trajectory_synchronous_step5_numtraj50_freq3_attper0.776.csv
+  Trajectory: trajectory_synchronous_step5_numtraj50_freq5_attper0.8.csv
+  Trajectory: trajectory_synchronous_step80_numtraj100_freq1_attper0.9665.csv
+  Trajectory: trajectory_synchronous_step80_numtraj100_freq3_attper0.9855.csv
+  Trajectory: trajectory_synchronous_step80_numtraj100_freq5_attper0.9875.csv
+  Trajectory: trajectory_synchronous_step80_numtraj20_freq1_attper0.97125.csv
+  Trajectory: trajectory_synchronous_step80_numtraj20_freq3_attper0.986875.csv
+  Trajectory: trajectory_synchronous_step80_numtraj20_freq5_attper0.9875.csv
+  Trajectory: trajectory_synchronous_step80_numtraj50_freq1_attper0.96825.csv
+  Trajectory: trajectory_synchronous_step80_numtraj50_freq3_attper0.986.csv
+  Trajectory: trajectory_synchronous_step80_numtraj50_freq5_attper0.9875.csv
+  Completed inference 1 for all trajectories. Starting inference 2 and evaluation.
+ IDs: d3cdfb8cf9380eb1 dc1954d0c4d73141 77cc409c837ee0eb 03339027a91081d1 d6701de6a40e5d5e 8a5afa1dd3cd210b 62d2cb642e878c1e e4612f7eb6ce5432 81b06ee90eb0d215 e29dcbfb06bc6847 0800e9e131cc2972 64757d08ef72dd2f 261cba970cf3a936 5197621d1aa7994e dd4c52b8cf75eacd b280eeb80a139f1a 669e2043fb9cfa9b 49f9ca73f09dfa00 241aaba63bc2aaad a7bd908b647bcb43 3f6ba552137476f4 723d45e02e04dde4 61a82a9aa4a6fa30 b656515388174c60 de2b8ecba096e63d 632e2e32519e9066 4be7dcaf003dfc6c 8522d395a1f1db35 534e00d55ffc4cca e004d7b45e2fbb7f a7721686b11fe931 ec1f7414e0c10c0b 7bcf693fee3a446e 46bf5f61c8ba030b e0575030bbfb16b6 2eec40d4ccdd3ddd 933559935f0f3067 d38a7de59c88ba80 4070d6b02f304c98 26220d2ef6c9a494 84da9cbc6610403f b39ac43658cca82d 165de08b20371760 3a814b4a6332ca17 f60a48ae719dbe1d e8bdc168b1e5a5cf f6c70320cbbecc0c 26b7367ef4fa26ac 9d9b14ede6049a5b 83b0dc757145bf0b 8c6a600e0850197d 95657c39280c447e 220c9f8253f4f3ef ce8f7acc8dd08dd2 4054c47186b13ab0 4545b43accac3324 993f84ed14fc35ab c2deac2fae6e6dcf f809699f5f160d4f 62405b6d3f27a08a e843ae6cc02fd46b 6bd6bb1430f103a3 2117ca7e7e8c79fd f791fdbe74ec8cd0 ec08530605afef0c 54beb81198799a4c 13183032f5fe98a4 631730f2761cd228 59fddc2dcb984257 0c344b87ea14bb0c 0486ddaf619ba2cc 5b89fb03ffc5aa1a
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj100_freq1_attper0.5804761904761905.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj100_freq3_attper0.8214285714285714.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj100_freq5_attper0.8923809523809524.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj20_freq1_attper0.6214285714285714.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj20_freq3_attper0.8238095238095238.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj20_freq5_attper0.8857142857142857.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj50_freq1_attper0.5961904761904762.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj50_freq3_attper0.8323809523809523.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj50_freq5_attper0.8876190476190476.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj100_freq1_attper0.8288235294117647.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj100_freq3_attper0.933921568627451.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj100_freq5_attper0.9576470588235294.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj20_freq1_attper0.8254901960784313.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj20_freq3_attper0.9382352941176471.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj20_freq5_attper0.9568627450980393.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj50_freq1_attper0.8286274509803921.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj50_freq3_attper0.9380392156862745.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj50_freq5_attper0.9556862745098039.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj100_freq1_attper0.07.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj100_freq3_attper0.45166666666666666.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj100_freq5_attper0.5933333333333334.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj20_freq1_attper0.06666666666666667.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj20_freq3_attper0.45.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj20_freq5_attper0.5666666666666667.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj50_freq1_attper0.043333333333333335.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj50_freq3_attper0.44666666666666666.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj50_freq5_attper0.58.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj100_freq1_attper0.8780246913580247.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj100_freq3_attper0.9544444444444444.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj100_freq5_attper0.9707407407407408.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj20_freq1_attper0.8728395061728395.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj20_freq3_attper0.9611111111111111.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj20_freq5_attper0.9679012345679012.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj50_freq1_attper0.8758024691358025.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj50_freq3_attper0.957283950617284.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj50_freq5_attper0.9696296296296296.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj100_freq1_attper0.866.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj100_freq3_attper0.942.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj100_freq5_attper0.95.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj20_freq1_attper0.885.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj20_freq3_attper0.9475.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj20_freq5_attper0.95.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj50_freq1_attper0.873.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj50_freq3_attper0.944.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj50_freq5_attper0.95.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj100_freq1_attper0.9464.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj100_freq3_attper0.9768.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj100_freq5_attper0.98.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj20_freq1_attper0.954.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj20_freq3_attper0.979.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj20_freq5_attper0.98.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj50_freq1_attper0.9492.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj50_freq3_attper0.9776.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj50_freq5_attper0.98.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj100_freq1_attper0.464.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj100_freq3_attper0.768.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj100_freq5_attper0.8.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj20_freq1_attper0.54.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj20_freq3_attper0.79.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj20_freq5_attper0.8.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj50_freq1_attper0.492.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj50_freq3_attper0.776.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj50_freq5_attper0.8.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj100_freq1_attper0.9665.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj100_freq3_attper0.9855.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj100_freq5_attper0.9875.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj20_freq1_attper0.97125.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj20_freq3_attper0.986875.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj20_freq5_attper0.9875.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj50_freq1_attper0.96825.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj50_freq3_attper0.986.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj50_freq5_attper0.9875.csv
+Completed processing for data/bn13
+Processing data/bn16
+  Trajectory: trajectory_asynchronous_step20_numtraj100_freq1_attper0.5914285714285714.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj100_freq3_attper0.8461904761904762.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj100_freq5_attper0.9061904761904762.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj20_freq1_attper0.5761904761904761.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj20_freq3_attper0.8761904761904762.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj20_freq5_attper0.8738095238095238.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj50_freq1_attper0.599047619047619.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj50_freq3_attper0.8514285714285714.csv
+  Trajectory: trajectory_asynchronous_step20_numtraj50_freq5_attper0.9038095238095238.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj100_freq1_attper0.8447058823529412.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj100_freq3_attper0.9394117647058824.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj100_freq5_attper0.9598039215686275.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj20_freq1_attper0.8245098039215686.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj20_freq3_attper0.946078431372549.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj20_freq5_attper0.9696078431372549.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj50_freq1_attper0.8466666666666667.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj50_freq3_attper0.9407843137254902.csv
+  Trajectory: trajectory_asynchronous_step50_numtraj50_freq5_attper0.9647058823529412.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj100_freq1_attper0.13.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj100_freq3_attper0.5266666666666666.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj100_freq5_attper0.645.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj20_freq1_attper0.175.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj20_freq3_attper0.6083333333333333.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj20_freq5_attper0.6833333333333333.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj50_freq1_attper0.13.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj50_freq3_attper0.52.csv
+  Trajectory: trajectory_asynchronous_step5_numtraj50_freq5_attper0.6333333333333333.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj100_freq1_attper0.8822222222222222.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj100_freq3_attper0.961604938271605.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj100_freq5_attper0.9738271604938271.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj20_freq1_attper0.8641975308641975.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj20_freq3_attper0.9586419753086419.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj20_freq5_attper0.9746913580246913.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj50_freq1_attper0.8681481481481481.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj50_freq3_attper0.9595061728395061.csv
+  Trajectory: trajectory_asynchronous_step80_numtraj50_freq5_attper0.9758024691358025.csv
+  Trajectory: trajectory_synchronous_step20_numtraj100_freq1_attper0.6765.csv
+  Trajectory: trajectory_synchronous_step20_numtraj100_freq3_attper0.874.csv
+  Trajectory: trajectory_synchronous_step20_numtraj100_freq5_attper0.9145.csv
+  Trajectory: trajectory_synchronous_step20_numtraj20_freq1_attper0.7225.csv
+  Trajectory: trajectory_synchronous_step20_numtraj20_freq3_attper0.8875.csv
+  Trajectory: trajectory_synchronous_step20_numtraj20_freq5_attper0.9225.csv
+  Trajectory: trajectory_synchronous_step20_numtraj50_freq1_attper0.698.csv
+  Trajectory: trajectory_synchronous_step20_numtraj50_freq3_attper0.88.csv
+  Trajectory: trajectory_synchronous_step20_numtraj50_freq5_attper0.919.csv
+  Trajectory: trajectory_synchronous_step50_numtraj100_freq1_attper0.8706.csv
+  Trajectory: trajectory_synchronous_step50_numtraj100_freq3_attper0.9496.csv
+  Trajectory: trajectory_synchronous_step50_numtraj100_freq5_attper0.9658.csv
+  Trajectory: trajectory_synchronous_step50_numtraj20_freq1_attper0.889.csv
+  Trajectory: trajectory_synchronous_step50_numtraj20_freq3_attper0.955.csv
+  Trajectory: trajectory_synchronous_step50_numtraj20_freq5_attper0.969.csv
+  Trajectory: trajectory_synchronous_step50_numtraj50_freq1_attper0.8792.csv
+  Trajectory: trajectory_synchronous_step50_numtraj50_freq3_attper0.952.csv
+  Trajectory: trajectory_synchronous_step50_numtraj50_freq5_attper0.9676.csv
+  Trajectory: trajectory_synchronous_step5_numtraj100_freq1_attper0.128.csv
+  Trajectory: trajectory_synchronous_step5_numtraj100_freq3_attper0.496.csv
+  Trajectory: trajectory_synchronous_step5_numtraj100_freq5_attper0.658.csv
+  Trajectory: trajectory_synchronous_step5_numtraj20_freq1_attper0.19.csv
+  Trajectory: trajectory_synchronous_step5_numtraj20_freq3_attper0.55.csv
+  Trajectory: trajectory_synchronous_step5_numtraj20_freq5_attper0.69.csv
+  Trajectory: trajectory_synchronous_step5_numtraj50_freq1_attper0.14.csv
+  Trajectory: trajectory_synchronous_step5_numtraj50_freq3_attper0.52.csv
+  Trajectory: trajectory_synchronous_step5_numtraj50_freq5_attper0.676.csv
+  Trajectory: trajectory_synchronous_step80_numtraj100_freq1_attper0.919125.csv
+  Trajectory: trajectory_synchronous_step80_numtraj100_freq3_attper0.9685.csv
+  Trajectory: trajectory_synchronous_step80_numtraj100_freq5_attper0.978625.csv
+  Trajectory: trajectory_synchronous_step80_numtraj20_freq1_attper0.930625.csv
+  Trajectory: trajectory_synchronous_step80_numtraj20_freq3_attper0.971875.csv
+  Trajectory: trajectory_synchronous_step80_numtraj20_freq5_attper0.980625.csv
+  Trajectory: trajectory_synchronous_step80_numtraj50_freq1_attper0.9245.csv
+  Trajectory: trajectory_synchronous_step80_numtraj50_freq3_attper0.97.csv
+  Trajectory: trajectory_synchronous_step80_numtraj50_freq5_attper0.97975.csv
+  Completed inference 1 for all trajectories. Starting inference 2 and evaluation.
+ IDs: 6ebac47ea1150c14 b6750fd8181dcc0a 6bf961eeda4002f6 0df860d39fee9e81 864983aebe6bf4a5 bd9c9a79b4891b21 17c3a5df9b4cd112 398ac16e2378ef21 200ac11cc39a13e7 dabc5937b533cda0 af51e7a5040ffa5c 23a2cb9788ea5075 2c5776151b120b30 915c69450efc1925 bc75c2853631d793 6077ec0969c0a765 c0c630973877e838 16c6d87b3869ef5c 6355bd83dc44450a 0765e941fba6a54b f9d49d2e22dafa64 3d3ff03f7f27aa35 fea0a6030faadbb3 b36d5ccfa8abc9db 138c6a9f600b9dcc 0308ea3f30885807 e365cc92e07f71fb fe06fa29d369f626 873c6eebb286ae63 5d62b1daa634e663 6be66aa194da2532 8e43af9d04f23b70 fac5cb8e3609ffe3 987bc65bfd66e361 551dba8c89fca014 22a201d9bc8668b2 23701cd0af853017 31383be78664ca52 af8a1b8c93b7708b 3ee67b516a861411 b6f999ea8665c7fc dc0f4c02f518e735 84e3cc95ea1ad809 92e0a2b1bfa1354c 9207aa77957f1c63 adcd753e50dec7f5 3bacf3b20a04d908 84558b0c3e590897 b43e568cf3bf0c59 327a4d7c63d8ff31 02ed38ef0feafd2e d8a62eb1432f90c4 1a32c4979add344b 0f15164e4536f508 61e2aa680bac92ff e8b30ab8ef75e875 614c9792867b0974 f4aeb14c02e42e70 3802fe4445acc28a 6b138eb8ac1d2e2d 13cfd078c545b95d 32cf2444b73eafcd aa98e4042e65a7a1 6a3f16c75f8cad72 664af4e26f0708c1 5802b67dd8dfc1f2 46b4123e9eecd8a1 7c6f9b733e5e34a6 5d5e65d0a0bf79c6 495126885df0402d 4d116526084a2acd 4f38f8c964cad869
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj100_freq1_attper0.5914285714285714.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj100_freq3_attper0.8461904761904762.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj100_freq5_attper0.9061904761904762.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj20_freq1_attper0.5761904761904761.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj20_freq3_attper0.8761904761904762.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj20_freq5_attper0.8738095238095238.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj50_freq1_attper0.599047619047619.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj50_freq3_attper0.8514285714285714.csv
+  Evaluating Trajectory: trajectory_asynchronous_step20_numtraj50_freq5_attper0.9038095238095238.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj100_freq1_attper0.8447058823529412.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj100_freq3_attper0.9394117647058824.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj100_freq5_attper0.9598039215686275.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj20_freq1_attper0.8245098039215686.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj20_freq3_attper0.946078431372549.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj20_freq5_attper0.9696078431372549.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj50_freq1_attper0.8466666666666667.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj50_freq3_attper0.9407843137254902.csv
+  Evaluating Trajectory: trajectory_asynchronous_step50_numtraj50_freq5_attper0.9647058823529412.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj100_freq1_attper0.13.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj100_freq3_attper0.5266666666666666.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj100_freq5_attper0.645.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj20_freq1_attper0.175.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj20_freq3_attper0.6083333333333333.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj20_freq5_attper0.6833333333333333.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj50_freq1_attper0.13.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj50_freq3_attper0.52.csv
+  Evaluating Trajectory: trajectory_asynchronous_step5_numtraj50_freq5_attper0.6333333333333333.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj100_freq1_attper0.8822222222222222.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj100_freq3_attper0.961604938271605.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj100_freq5_attper0.9738271604938271.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj20_freq1_attper0.8641975308641975.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj20_freq3_attper0.9586419753086419.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj20_freq5_attper0.9746913580246913.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj50_freq1_attper0.8681481481481481.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj50_freq3_attper0.9595061728395061.csv
+  Evaluating Trajectory: trajectory_asynchronous_step80_numtraj50_freq5_attper0.9758024691358025.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj100_freq1_attper0.6765.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj100_freq3_attper0.874.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj100_freq5_attper0.9145.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj20_freq1_attper0.7225.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj20_freq3_attper0.8875.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj20_freq5_attper0.9225.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj50_freq1_attper0.698.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj50_freq3_attper0.88.csv
+  Evaluating Trajectory: trajectory_synchronous_step20_numtraj50_freq5_attper0.919.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj100_freq1_attper0.8706.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj100_freq3_attper0.9496.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj100_freq5_attper0.9658.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj20_freq1_attper0.889.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj20_freq3_attper0.955.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj20_freq5_attper0.969.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj50_freq1_attper0.8792.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj50_freq3_attper0.952.csv
+  Evaluating Trajectory: trajectory_synchronous_step50_numtraj50_freq5_attper0.9676.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj100_freq1_attper0.128.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj100_freq3_attper0.496.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj100_freq5_attper0.658.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj20_freq1_attper0.19.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj20_freq3_attper0.55.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj20_freq5_attper0.69.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj50_freq1_attper0.14.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj50_freq3_attper0.52.csv
+  Evaluating Trajectory: trajectory_synchronous_step5_numtraj50_freq5_attper0.676.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj100_freq1_attper0.919125.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj100_freq3_attper0.9685.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj100_freq5_attper0.978625.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj20_freq1_attper0.930625.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj20_freq3_attper0.971875.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj20_freq5_attper0.980625.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj50_freq1_attper0.9245.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj50_freq3_attper0.97.csv
+  Evaluating Trajectory: trajectory_synchronous_step80_numtraj50_freq5_attper0.97975.csv
+Completed processing for data/bn16
+All done.
