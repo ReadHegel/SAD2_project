@@ -58,6 +58,11 @@ for BN in 5 7 10 13 16; do
     done
     
     echo "  Completed inference 1 for all trajectories. Starting inference 2 and evaluation."
+
+    if [[ ${#TRAJECTORIES[@]} -ne ${#IDs[@]} ]]; then
+        echo "Error: Mismatch in number of trajectories and IDs."
+        exit 1
+    fi
     
     conda activate sad_generation
     for ((i=0; i<${#TRAJECTORIES[@]}; i++)); do
