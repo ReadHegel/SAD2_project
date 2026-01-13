@@ -49,7 +49,8 @@ def main():
         output_file_path = DIR + output_file_filename
 
 
-        cmd = "bnf -e " + input_path + " -g --cpu=" + str(NUM_CPU) + " -n " + str(output_file_path) + " -s " + scoring_type
+        cmd = "bnf -e " + input_path + " -g 1 --cpu=" + str(NUM_CPU) + " -n " + str(output_file_path) + " -s " + scoring_type
+        cmd = cmd + " -l 3"
         subprocess.check_call(cmd, shell=True)
 
 
