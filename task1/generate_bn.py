@@ -25,7 +25,7 @@ import pickle
 def random_regulatory_graph(nodes, max_parents=3):
     graph = {}
     for n in nodes:
-        k = random.randint(0, min(max_parents, len(nodes) - 1))
+        k = random.randint(1, min(max_parents, len(nodes) - 1))
         parents = random.sample(nodes, k)
         graph[n] = parents
     return graph
@@ -106,6 +106,7 @@ def main():
         primes = bnet2primes(args.path)
 
     ground_truth_digraph = primes2igraph(primes)
+    
     
     with open(
         os.path.join(args.outdir, "ground_truth_digraph.pkl"), "wb"
