@@ -63,6 +63,8 @@ for BN in 5 7 10 13 16; do
         echo "Error: Mismatch in number of trajectories and IDs."
         exit 1
     fi
+    echo " IDs: ${IDs[*]}"
+
     
     conda activate sad_generation
     for ((i=0; i<${#TRAJECTORIES[@]}; i++)); do
@@ -92,7 +94,7 @@ for BN in 5 7 10 13 16; do
         done
     done
 
-    # rm tmp/*
+    rm tmp/*
     echo "Completed processing for $BN_DIR"
 
 done
