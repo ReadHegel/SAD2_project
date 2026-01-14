@@ -48,21 +48,14 @@ We can see that the two graph metrics are very similar on the following plot.
 ```{r}
 ggplot(data, aes(x=jaccard_result, y=jaccard_weighted_result)) + geom_point()
 ```
-they are even exactly the same most of the time
-```{r}
-mean(data$jaccard_result == data$jaccard_weighted_result)
-```
 
 # Achieved results
 
-The achieved results aren't very good, the median is low.
+The summary of the achieved results can be seen in the following table
 ```{r}
 kable(data.frame(rbind(summary(data$jaccard_result))))
 ```
-We can see that a lot of that is due to the frequency.
-```{r}
-kable(data %>% group_by(freq) %>% summarise(med=median(jaccard_result)))
-```
+and a violin plot of all results looks as follows. We can see that it is rather bottom heavy, but there are also high results present.
 ```{r}
 ggplot(data, aes(x="", y=jaccard_result)) +
   geom_violin()
@@ -71,24 +64,26 @@ ggplot(data, aes(x="", y=jaccard_result)) +
 
 # Effect of number of variables
 
-For some reason the results are best when using 7 variables.
+As we add more variables, the results become worse.
 ```{r}
 ggplot(data, aes(x=factor(var_num), y=jaccard_result)) +
   geom_violin()
 ```
 
-but the correlation is test does not give anything conclusive
+as can be seen in the correlation test
 ```{r}
-cor.test(data$var_num, data$jaccard_result, method = "spearman")
+tst <- cor.test(data$var_num, data$jaccard_result, method = "spearman")
+tst
 ```
+with low p-value of `r tst$p.value`.
 
 # Effect of mode
 
 First we can see that the synchronous data is much less resistant to infrequent probes.
 ```{r}
-ggplot(data, aes(x=mode,y=steps,fill=jaccard_result)) + geom_tile() + facet_wrap(~freq)
+ggplot(data, aes(x=mode,y=factor(steps),fill=jaccard_result)) + geom_tile() + facet_wrap(~freq)
 ```
-The asynchronous can deal with it, but synchronous works very bad whenever sampling frequency is not 1.
+The asynchronous can sort of deal with it, but synchronous works very bad whenever sampling frequency is not 1.
 
 We can see on the following plot that if the frequency is 1, then synchronous data gives generally better results with the given amount of data. It can be because with the same number of transitions more variables get changed.
 ```{r}
@@ -96,15 +91,30 @@ ggplot(data %>% filter(freq==1), aes(x=mode, y=jaccard_result)) +
   geom_violin()
 ```
 
-If we divide the data by number of variables we can see that with frequency 1, every time the synchronous option is better and the more steps we have, the better.
+If we divide the data by number of variables we can see that with frequency 1, every time the synchronous option is better.
 ```{r}
-ggplot(data %>% filter(freq==1), aes(x=mode,y=steps,fill=jaccard_result)) + geom_tile() +
+ggplot(data %>% filter(freq==1), aes(x=mode,y=factor(steps),fill=jaccard_result)) + geom_tile() +
     facet_wrap(~var_num)
+```
+
+# Scoring mode
+
+As we can see here, the scoring mode has little to no effect on the result given other parameters.
+```{r}
+ggplot(data, aes(x=mode,y=score_type,fill=jaccard_result)) +
+  geom_tile() +
+  facet_grid(freq~steps)
+```
+
+We can also use Kolmogorov-Smirnov test to check if they give the same distributions and it gives us that we cannot rule that out with any sensible confidence.
+```{r}
+ks.test((data %>% filter(score_type=='MDL'))$jaccard_result,
+        (data %>% filter(score_type=='BDE'))$jaccard_result)
 ```
 
 # Linear regression
 
-If we fun linear regression with all the data, the results aren't very good. On the other hand, if we filter only by those results that have frequency 1, we get a high R squared.
+If we fun linear regression with all the data, it doesn't work the best, gives adjusted R squared of `r summary(lm(jaccard_result ~ var_num + steps + numtraj + attper + mode_asynchronous + score_type_BDE, dummy_cols(data)))$adj.r.squared` On the other hand, if we filter only by those results that have frequency 1, we get a high R squared.
 ```{r}
 data_with_dummies <- dummy_cols(data) %>% filter(freq==1)
 linear_model <- lm(jaccard_result ~
@@ -113,6 +123,4 @@ linear_model <- lm(jaccard_result ~
 
 kable(tidy(linear_model))
 ```
-```{r}
-summary(linear_model)$adj.r.squared
-```
+And with data filtered by frequency equal to 1, we get adjusted R squared of `r summary(linear_model)$adj.r.squared`.

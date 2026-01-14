@@ -25,26 +25,26 @@ mean(data$jaccard_result == data$jaccard_weighted_result)
 # the scores are low with median being 0.2
 summary(data$jaccard_result)
 
-ggplot(data, aes(x="", y=jaccard_result)) + 
+ggplot(data, aes(x="", y=jaccard_result)) +
   geom_violin()
 
 
 # taking the frequency to be 1 is the best and then it gets progressively worse
-ggplot(data, aes(x=factor(freq), y=jaccard_result)) + 
+ggplot(data, aes(x=factor(freq), y=jaccard_result)) +
   geom_violin()
 
 # we can almost certainly conclude that higher frequency gives worse result
 cor.test(data$freq, data$jaccard_result, method = "spearman")
 
 # for some reason it works best on 7 variables
-ggplot(data, aes(x=factor(var_num), y=jaccard_result)) + 
+ggplot(data %>% filter(freq==1), aes(x=factor(var_num), y=jaccard_result)) +
   geom_violin()
 # test of correlation between var number and result doesn't give anything conclusive
 cor.test(data$var_num, data$jaccard_result, method = "spearman")
 
 
 # turns out synchronous is better for some reason
-ggplot(data, aes(x=mode, y=jaccard_result)) + 
+ggplot(data, aes(x=mode, y=jaccard_result)) +
   geom_violin()
 # synchronous mode has much more zero score entries with p value 0.01
 data_with_zero_jaccard <- data %>% mutate(jaccard_zero = (jaccard_result==0))
@@ -54,7 +54,7 @@ chisq.test(contingency_table)
 contingency_table
 
 # score type does not change much
-ggplot(data, aes(x=score_type, y=jaccard_result)) + 
+ggplot(data, aes(x=score_type, y=jaccard_result)) +
   geom_violin()
 
 
@@ -83,3 +83,17 @@ ggplot(data, aes(x=mode,y=steps,fill=jaccard_result)) + geom_tile() + facet_wrap
 
 
 data %>% group_by(freq) %>% summarise(med=median(jaccard_result))
+
+ggplot(data, aes(x=mode,y=score_type,fill=jaccard_result)) + geom_tile() + facet_grid(numtraj~steps)
+
+ggplot(data, aes(x=mode,y=score_type,fill=jaccard_result)) + geom_tile()
+
+summary(data %>% filter(freq==1, var_num==10))
+
+ggplot(data %>% filter(freq==1), aes(x=factor(steps), y=jaccard_result)) +
+  geom_violin()
+
+
+ggplot(data %>% filter(var_num == 13), aes(x=factor(freq), y=jaccard_result)) + geom_violin()
+
+ks.test((data %>% filter(score_type=='MDL'))$jaccard_result, (data %>% filter(score_type=='BDE'))$jaccard_result)
