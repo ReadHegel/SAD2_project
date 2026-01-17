@@ -87,8 +87,10 @@ def main():
     parser.add_argument("--seed", type=int, default=42)
 
     args = parser.parse_args()
-    random.seed(args.seed)
-
+    seed = os.getenv("RANDOM_SEED")
+    assert seed is not None, "RANDOM_SEED environment variable must be set"
+    random.seed(seed)
+    
     os.makedirs(args.outdir, exist_ok=True)
 
     if not args.path:

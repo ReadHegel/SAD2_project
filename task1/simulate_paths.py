@@ -19,6 +19,7 @@ from pyboolnet.state_transition_graphs import (
     successor_synchronous,
 )
 from attractors import compute_attractors_tarjan
+from multiprocessing.pool import ThreadPool
 
 
 # -------------------------------------------------
@@ -112,9 +113,51 @@ def add_atractor_col(dataset_df, primes, attractors):
 
     return dataset_df
 
-def run(primes, attractors, outdir: str, mode: str, steps: int, freq: int, num_traj: int, seed: int = 42):
-    random.seed(seed)
+def async_run(primes, attractors, outdir: str, mode: str, steps: int, freq: int, num_traj: int, nruns: int):
+    os.makedirs(outdir, exist_ok=True)
 
+    nodes = primes.keys()
+
+    def run_traj():
+        init = random_state(primes)
+        if mode == "synchronous":
+            traj = simulate_sync(primes, init, steps * freq)
+        else:
+            traj = simulate_async(primes, init, steps * freq)
+
+        dataset = traj[:: freq]
+        df = trajectory_to_df(dataset, nodes)
+        df["time"] = range(len(df))
+        return df
+    
+    def single_run(run_idx):
+        all_df = []
+        pool = ThreadPool()
+        results = []
+        for _ in range(num_traj):
+            results.append(pool.apply_async(run_traj))
+        pool.close()
+        pool.join()
+        for res in results:
+            all_df.append(res.get())
+        
+        concat_df = pd.concat(all_df, ignore_index=True)
+        concat_df = add_atractor_col(concat_df, primes, attractors)
+
+        attractor_percent = concat_df["isattractor"].sum() / concat_df.shape[0]
+        csv_name = f"trajectory_{mode}_step{steps}_numtraj{num_traj}_freq{freq}_attper{attractor_percent}_run{run_idx}"
+        csv_path = os.path.join(outdir, csv_name + ".csv")
+        concat_df.to_csv(csv_path, index=False)
+    #print(f"[INFO] Saved trajectories to {csv_path}")
+
+    pool = ThreadPool()
+    results = []
+    for run_idx in range(nruns):
+        results.append(pool.apply_async(single_run, args=(run_idx,)))
+    pool.close()
+    pool.join()
+
+def run(primes, attractors, outdir: str, mode: str, steps: int, freq: int, num_traj: int, runs: int):
     os.makedirs(outdir, exist_ok=True)
 
     nodes = primes.keys()
@@ -148,24 +191,41 @@ def run(primes, attractors, outdir: str, mode: str, steps: int, freq: int, num_t
     #print("[DONE]")
 
 def main():
+    seed = os.getenv("RANDOM_SEED")
+    assert seed is not None, "RANDOM_SEED environment variable must be set"
+    random.seed(int(seed))
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--nruns", type=int, default=1)
+    args = parser.parse_args()
+
     node_nums = [5, 7, 10, 13, 16]
     possible_modes = ['asynchronous', 'synchronous']
     steps_list = [5, 20, 50, 80]
     freq_list = [1, 3, 5]
     num_traj_list = [20, 50, 100]
 
-    total_runs = len(node_nums) * len(possible_modes) * len(steps_list) * len(freq_list) * len(num_traj_list)
+    total_runs = len(node_nums) * len(possible_modes) * len(steps_list) * len(freq_list) * len(num_traj_list) * args.nruns
+
+    pool = ThreadPool()
+    jobs = []
+    for n in node_nums:
+        primes = bnet2primes("data/bn{}/network.bnet".format(n))
+        for mode in possible_modes:
+            attractors = compute_attractors(primes, mode)
+            for steps in steps_list:
+                for freq in freq_list:
+                    for num_traj in num_traj_list:
+                        jobs.append((primes, attractors, "data/bn{}/trajectories".format(n), mode, steps, freq, num_traj, args.nruns))
+
+    def run_job(job):
+        primes, attractors, outdir, mode, steps, freq, num_traj, nruns = job
+        run(primes, attractors, outdir, mode, steps, freq, num_traj, nruns)
 
     with tqdm(total=total_runs, desc="Total progress") as pbar:
-        for n in node_nums:
-            primes = bnet2primes(f"data/bn{n}/network.bnet")
-            for mode in possible_modes:
-                attractors = compute_attractors(primes, mode)
-                for steps in steps_list:
-                    for freq in freq_list:
-                        for num_traj in num_traj_list:
-                            run(primes, attractors, f"data/bn{n}/trajectories", mode, steps, freq, num_traj)
-                            pbar.update(1)
+        for _ in pool.imap_unordered(run_job, jobs):
+            pbar.update(1)
+    pool.close()
+    pool.join()
 
 
 if __name__ == "__main__":
