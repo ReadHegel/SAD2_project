@@ -112,13 +112,28 @@ ks.test((data %>% filter(score_type=='MDL'))$jaccard_result,
         (data %>% filter(score_type=='BDE'))$jaccard_result)
 ```
 
+# Effect of attractor frequency
+We can very reasonably conclude, that when using synchronous data, attractor percentage has negative effect.
+```{r}
+data_synch <- data %>% filter(mode=="synchronous")
+tst <- cor.test(data_synch$attper, data_synch$jaccard_result, method = "spearman")
+tst
+```
+with a low p-value of `r tst$p.value``. On the other hand, in asynchronous data it has the opposite effect.
+```{r}
+data_asynch <- data %>% filter(mode=="asynchronous")
+tst <- cor.test(data_asynch$attper, data_asynch$jaccard_result, method = "spearman")
+tst
+```
+again with a low p-value of `r tst$p.value``
+
 # Linear regression
 
-If we fun linear regression with all the data, it doesn't work the best, gives adjusted R squared of `r summary(lm(jaccard_result ~ var_num + steps + numtraj + attper + mode_asynchronous + score_type_BDE, dummy_cols(data)))$adj.r.squared` On the other hand, if we filter only by those results that have frequency 1, we get a high R squared.
+If we fun linear regression with all the data, it doesn't work the best, gives adjusted R squared of `r summary(lm(jaccard_result ~ var_num + steps + numtraj + attper + mode_synchronous + score_type_BDE, dummy_cols(data)))$adj.r.squared` On the other hand, if we filter only by those results that have frequency 1, we get a high R squared.
 ```{r}
 data_with_dummies <- dummy_cols(data) %>% filter(freq==1)
 linear_model <- lm(jaccard_result ~
-                      var_num + steps + numtraj + attper + mode_asynchronous + score_type_BDE,
+                      var_num + steps + numtraj + attper + mode_synchronous + score_type_BDE,
                       data_with_dummies)
 
 kable(tidy(linear_model))

@@ -12,7 +12,7 @@ library(fastDummies)
 
 
 data <- read.csv(here("task1", "all_data.csv"))
-
+colnames(data)
 
 # we can see that the more states there are the more probability of encountering a non attractor node
 ggplot(data, aes(y=attper, x=factor(var_num))) + geom_violin()
@@ -97,3 +97,10 @@ ggplot(data %>% filter(freq==1), aes(x=factor(steps), y=jaccard_result)) +
 ggplot(data %>% filter(var_num == 13), aes(x=factor(freq), y=jaccard_result)) + geom_violin()
 
 ks.test((data %>% filter(score_type=='MDL'))$jaccard_result, (data %>% filter(score_type=='BDE'))$jaccard_result)
+
+
+data_synch <- data %>% filter(mode=="synchronous")
+cor.test(data_synch$attper, data_synch$jaccard_result, method = "spearman")
+
+data_asynch <- data %>% filter(mode=="asynchronous")
+cor.test(data_asynch$attper, data_asynch$jaccard_result, method = "spearman")
