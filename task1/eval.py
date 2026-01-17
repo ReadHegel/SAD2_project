@@ -12,7 +12,7 @@ TOTAL_CSV = "all_data.csv"
 HEADER = ["mode", "steps", "numtraj", "freq", "attper", "score_type", "jaccard_result", "jaccard_weighted_result"]
 
 def parse_metadata(filename):
-    mode = "synchronous" if "synchronous" in filename else "asynchronous"
+    mode = "asynchronous" if "asynchronous" in filename else "synchronous"
     steps = re.search(r'step(\d+)', filename).group(1)
     numtraj = re.search(r'numtraj(\d+)', filename).group(1)
     freq = re.search(r'freq(\d+)', filename).group(1)
