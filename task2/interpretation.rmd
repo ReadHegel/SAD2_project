@@ -1,0 +1,138 @@
+---
+title: "Task 2 analysis"
+author: "Marcin Stopka, Franciszek Sobota, Grzegorz Dolanowski"
+date: "2026-01-10"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+#install.packages("here")
+#install.packages("ggplot2")
+#install.packages("dplyr")
+#install.packages("GGally")
+#install.packages("fastDummies")
+install.packages("broom")
+
+library(here)
+library(ggplot2)
+library(dplyr)
+library(GGally)
+library(fastDummies)
+library(knitr)
+library(broom)
+
+knitr::opts_chunk$set(
+  fig.path = "figures/",
+  fig.width = 8,
+  fig.height = 6
+)
+
+data <- read.csv('/home/grzesiek/SAD2_project/all_data.csv')
+```
+For the second task we've decided to analyze the performance of inference algorithms on 3 validated boolean networks:  
+1. 8 variable: [CARDIAC-DEVELOPMENT](https://github.com/sybila/biodivine-boolean-models/tree/main/models/%5Bid-010%5D__%5Bvar-13%5D__%5Bin-2%5D__%5BCARDIAC-DEVELOPMENT%5D)  
+2. 13 variable: [METABOLIC-INTERACTIONS-IN-GUT-MICROBIOME](https://github.com/sybila/biodivine-boolean-models/tree/main/models/%5Bid-064%5D__%5Bvar-8%5D__%5Bin-4%5D__%5BMETABOLIC-INTERACTIONS-IN-GUT-MICROBIOME%5D)  
+3. 14 variable: [NEUROTRANSMITTER-SIGNALING-PATHWAY](https://github.com/sybila/biodivine-boolean-models/tree/main/models/%5Bid-015%5D__%5Bvar-14%5D__%5Bin-2%5D__%5BNEUROTRANSMITTER-SIGNALING-PATHWAY%5D)  
+We've run exatcly the same simulations, including both synchronous and asynchronous manners. In conclusion the results are almost perfectly consistent with our prior findings.
+```
+```
+
+# [Consistent] Sampling frequency has negative correlation with result
+
+```{r}
+ggplot(data, aes(x=factor(freq), y=jaccard_result)) +
+  geom_violin()
+```
+
+```{r}
+tst <- cor.test(data$freq, data$jaccard_result, method = "spearman")
+tst
+```
+
+# Graph Metrics
+```{r}
+ggplot(data, aes(x=jaccard_result, y=jaccard_weighted_result)) + geom_point()
+```
+
+# Achieved results
+
+For validated networks the distribution of jaccard metric has similar properties.
+```{r}
+kable(data.frame(rbind(summary(data$jaccard_result))))
+```
+```{r}
+ggplot(data, aes(x="", y=jaccard_result)) +
+  geom_violin()
+```
+
+
+# [Consistent] Number of variables is negatively correlated with the jaccard metric
+
+```{r}
+ggplot(data, aes(x=factor(var_num), y=jaccard_result)) +
+  geom_violin()
+```
+
+```{r}
+tst <- cor.test(data$var_num, data$jaccard_result, method = "spearman")
+tst
+```
+
+# [Consistent] Asynchronous mode is "easier", except for the case of frequency=1
+
+First we can see that the synchronous data is much less resistant to infrequent probes.
+```{r}
+ggplot(data, aes(x=mode,y=factor(steps),fill=jaccard_result)) + geom_tile() + facet_wrap(~freq)
+```
+# [Consistent] For frequency=1, synchronous mode consistently achieves higher score, for every variable count
+
+```{r}
+ggplot(data %>% filter(freq==1), aes(x=mode, y=jaccard_result)) +
+  geom_violin()
+```
+
+```{r}
+ggplot(data %>% filter(freq==1), aes(x=mode,y=factor(steps),fill=jaccard_result)) + geom_tile() +
+    facet_wrap(~var_num)
+```
+
+# [Consistent] Scoring mode has no statistically significant effect on result.
+
+```{r}
+ggplot(data, aes(x=mode,y=score_type,fill=jaccard_result)) +
+  geom_tile() +
+  facet_grid(freq~steps)
+```
+
+```{r}
+ks.test((data %>% filter(score_type=='MDL'))$jaccard_result,
+        (data %>% filter(score_type=='BDE'))$jaccard_result)
+```
+
+# [Inconsistent] Correlation of attractor frequency when using synchronous mode is statistically insignificant.
+```{r}
+data_synch <- data %>% filter(mode=="synchronous")
+tst <- cor.test(data_synch$attper, data_synch$jaccard_result, method = "spearman")
+tst
+```
+# [Consistent] For asynchronous mode, attractor frequency is positively correlated with the score.
+```{r}
+data_asynch <- data %>% filter(mode=="asynchronous")
+tst <- cor.test(data_asynch$attper, data_asynch$jaccard_result, method = "spearman")
+tst
+```
+
+# Linear regression
+
+If we fun linear regression with all the data, it doesn't work the best, gives adjusted R squared of `r summary(lm(jaccard_result ~ var_num + steps + numtraj + attper + mode_synchronous + score_type_BDE, dummy_cols(data)))$adj.r.squared` On the other hand, if we filter only by those results that have frequency 1, we get a high R squared.
+```{r}
+data_with_dummies <- dummy_cols(data) %>% filter(freq==1)
+linear_model <- lm(jaccard_result ~
+                      var_num + steps + numtraj + attper + mode_synchronous + score_type_BDE,
+                      data_with_dummies)
+
+kable(tidy(linear_model))
+```
+And with data filtered by frequency equal to 1, we get adjusted R squared of `r summary(linear_model)$adj.r.squared`.
