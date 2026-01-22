@@ -1,28 +1,29 @@
 #!/bin/bash
 
-set -e
+# set -ex
 
-if [[ -z "$SAD2_PROJECT" ]]; then
-    echo "Error: SAD2_PROJECT environment variable is not set"
-    echo "Run: export SAD2_PROJECT=/path/to/SAD2_project"
-    exit 1
-fi
+source "$(conda info --base)/etc/profile.d/conda.sh"
 
-eval "$(conda shell.bash hook)"
+HEADER="mode,steps,numtraj,freq,attper,score_type,jaccard_result,jaccard_weighted_result"
 
-HEADER="network,mode,steps,numtraj,freq,attper,score_type,jaccard_result,jaccard_weighted_result"
+HEADER_ALL="var_num,$HEADER"
+TOTAL_CSV="all_data.csv"
+echo "$HEADER_ALL" > "$TOTAL_CSV"
+
+rm tmp/*
 
 for bn_dir in "$SAD2_PROJECT/task2/real_bns"/*/; do
-    bn_name=$(basename "$bn_dir")
-    
-    echo "Processing $bn_name"
+# for BN in 5; do
+    BN_DIR="$bn_dir"
 
-    GT_PATH="$bn_dir/ground_truth_digraph.pkl"
-    TRAJ_DIR="$bn_dir/trajectories"
-    OUT_CSV="$bn_dir/reconstruction_results.csv"
+    echo "Processing $BN_DIR"
+
+    GT_PATH="$BN_DIR/ground_truth_digraph.pkl"
+    TRAJ_DIR="$BN_DIR/trajectories"
+    OUT_CSV="$BN_DIR/reconstruction_results.csv"
 
     if [[ ! -d "$TRAJ_DIR" || ! -f "$GT_PATH" ]]; then
-        echo "Skipping $bn_name (missing trajectories or ground truth)"
+        echo "Skipping $BN_DIR (missing trajectories or ground truth)"
         continue
     fi
 
@@ -31,7 +32,11 @@ for bn_dir in "$SAD2_PROJECT/task2/real_bns"/*/; do
         echo "$HEADER" > "$OUT_CSV"
     fi
 
-    for TRAJ in "$TRAJ_DIR"/*.csv; do
+    TRAJECTORIES=("$TRAJ_DIR"/*.csv)
+    IDs=()
+
+    conda activate sad_inference
+    for TRAJ in "${TRAJECTORIES[@]}"; do
         echo "  Trajectory: $(basename "$TRAJ")"
 
         FILENAME=$(basename "$TRAJ")
@@ -44,25 +49,53 @@ for bn_dir in "$SAD2_PROJECT/task2/real_bns"/*/; do
         STEPS=$(echo "$FILENAME" | grep -oE 'step[0-9]+' | sed 's/step//')
         NUMTRAJ=$(echo "$FILENAME" | grep -oE 'numtraj[0-9]+' | sed 's/numtraj//')
         FREQ=$(echo "$FILENAME" | grep -oE 'freq[0-9]+' | sed 's/freq//')
-        ATTPER=$(echo "$FILENAME" | grep -oE 'attper[0-9.]+' | sed 's/attper//')
+        ATTPER=$(echo "$FILENAME" | grep -oE 'attper[0-9]+\.?[0-9]*' | sed 's/attper//')
 
         # -------- RUN INFERENCE 1 --------
-        conda activate sad_inference
-        python "$SAD2_PROJECT/task1/infer1.py" --trajectories "$TRAJ" > /dev/null
+        ID=$(python2 ../task1/infer1.py --trajectories "$TRAJ")
+        IDs+=("$ID")
 
+    done
+    
+    echo "  Completed inference 1 for all trajectories. Starting inference 2 and evaluation."
+
+    if [[ ${#TRAJECTORIES[@]} -ne ${#IDs[@]} ]]; then
+        echo "Error: Mismatch in number of trajectories and IDs."
+        exit 1
+    fi
+    echo " IDs: ${IDs[*]}"
+
+    
+    conda activate sad_generation
+    for ((i=0; i<${#TRAJECTORIES[@]}; i++)); do
+        echo "  Evaluating Trajectory: $(basename "${TRAJECTORIES[i]}")"
+
+        TRAJ="${TRAJECTORIES[i]}"
+        ID="${IDs[i]}"
+
+        FILENAME=$(basename "$TRAJ")
+
+        MODE=$(echo "$FILENAME" | grep -oE 'synchronous|asynchronous')
+        STEPS=$(echo "$FILENAME" | grep -oE 'step[0-9]+' | sed 's/step//')
+        NUMTRAJ=$(echo "$FILENAME" | grep -oE 'numtraj[0-9]+' | sed 's/numtraj//')
+        FREQ=$(echo "$FILENAME" | grep -oE 'freq[0-9]+' | sed 's/freq//')
+        ATTPER=$(echo "$FILENAME" | grep -oE 'attper[0-9]+\.?[0-9]*' | sed 's/attper//')
+    
         # -------- RUN INFERENCE 2 & CAPTURE OUTPUT --------
-        conda activate sad_generation
-        OUTPUT=$(python "$SAD2_PROJECT/task1/infer2.py" --trajectories "$TRAJ" --gt_path "$GT_PATH")
+        OUTPUT=$(python ../task1/infer2.py --trajectories "$TRAJ" --gt_path "$GT_PATH" --id "$ID")
 
         # -------- PARSE RESULTS --------
         for SCORE in MDL BDE; do
             JW=$(echo "$OUTPUT" | grep "$SCORE ---- jaccard_weighted result" | awk '{print $NF}')
             J=$(echo "$OUTPUT" | grep "$SCORE ---- jaccard result" | awk '{print $NF}')
 
-            echo "$bn_name,$MODE,$STEPS,$NUMTRAJ,$FREQ,$ATTPER,$SCORE,$J,$JW" >> "$OUT_CSV"
+            echo "$MODE,$STEPS,$NUMTRAJ,$FREQ,$ATTPER,$SCORE,$J,$JW" >> "$OUT_CSV"
+            echo "$BN,$MODE,$STEPS,$NUMTRAJ,$FREQ,$ATTPER,$SCORE,$J,$JW" >> "$TOTAL_CSV"
         done
-
     done
+
+    rm tmp/*
+    echo "Completed processing for $BN_DIR"
 
 done
 

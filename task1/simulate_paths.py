@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import argparse
 import igraph as ig
 import itertools
@@ -49,7 +51,7 @@ def trajectory_to_df(traj, nodes):
 
 def compute_attractors_igraph(stg):
     """
-    Szybsza wersja compute_attractors_tarjan używająca igraph.
+    Szybsza wersja compute_attractors_tarjan uzywająca igraph.
     Zwraca steady_states i cyclic_attractors.
     """
 
@@ -196,7 +198,19 @@ def main():
     random.seed(int(seed))
     parser = argparse.ArgumentParser()
     parser.add_argument("--nruns", type=int, default=1)
+    parser.add_argument("--path", type=str, default=None, help="Path to .bnet file")
+    parser.add_argument("--outdir", type=str, default=None, help="Output directory for trajectories")
+    parser.add_argument("--mode", type=str, default=None, help="Mode: asynchronous or synchronous")
+    parser.add_argument("--steps", type=int, default=None, help="Number of steps")
+    parser.add_argument("--freq", type=int, default=None, help="Frequency")
+    parser.add_argument("--num_traj", type=int, default=None, help="Number of trajectories")
     args = parser.parse_args()
+    # If all custom args are provided, run a single simulation
+    if args.path and args.outdir and args.mode and args.steps is not None and args.freq is not None and args.num_traj is not None:
+        primes = bnet2primes(args.path)
+        attractors = compute_attractors(primes, args.mode)
+        run(primes, attractors, args.outdir, args.mode, args.steps, args.freq, args.num_traj, args.nruns)
+        return
 
     node_nums = [5, 7, 10, 13, 16]
     possible_modes = ['asynchronous', 'synchronous']
